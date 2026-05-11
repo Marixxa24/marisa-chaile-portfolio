@@ -1,0 +1,170 @@
+import React, { useState } from 'react';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import '../styles/Contact.css';
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const [status, setStatus] = useState({
+    submitting: false,
+    submitted: false,
+    error: null
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ submitting: true, submitted: false, error: null });
+
+    // Aquí puedes conectar con tu backend o usar EmailJS
+    // Por ahora simulamos el envío
+    try {
+      // Simular envío
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      console.log('Formulario enviado:', formData);
+      setStatus({ submitting: false, submitted: true, error: null });
+      setFormData({ name: '', email: '', message: '' });
+      
+      // Resetear el mensaje de éxito después de 5 segundos
+      setTimeout(() => {
+        setStatus(prev => ({ ...prev, submitted: false }));
+      }, 5000);
+    } catch (error) {
+      setStatus({ submitting: false, submitted: false, error: 'Error al enviar el mensaje' });
+    }
+  };
+
+  return (
+    <div className="contact-page">
+      <div className="contact-header">
+        <h1 className="page-title">Contacto</h1>
+        <p className="contact-subtitle">
+          ¿Tienes un proyecto en mente? ¡Hablemos!
+        </p>
+      </div>
+
+      <div className="contact-container">
+        <div className="contact-info">
+          <h2>Información de Contacto</h2>
+          
+          <div className="info-item">
+            <FaEnvelope className="info-icon" />
+            <div>
+              <h3>Email</h3>
+              <a href="mailto:tu@email.com">tu@email.com</a>
+            </div>
+          </div>
+
+          <div className="info-item">
+            <FaPhone className="info-icon" />
+            <div>
+              <h3>Teléfono</h3>
+              <a href="tel:+1234567890">+123 456 7890</a>
+            </div>
+          </div>
+
+          <div className="info-item">
+            <FaMapMarkerAlt className="info-icon" />
+            <div>
+              <h3>Ubicación</h3>
+              <p>Tu Ciudad, País</p>
+            </div>
+          </div>
+
+          <div className="social-contact">
+            <h3>Redes Sociales</h3>
+            <div className="social-icons">
+              <a href="https://github.com/tuusuario" target="_blank" rel="noreferrer">
+                <FaGithub />
+              </a>
+              <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noreferrer">
+                <FaLinkedin />
+              </a>
+              <a href="https://twitter.com/tuusuario" target="_blank" rel="noreferrer">
+                <FaTwitter />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="contact-form-container">
+          <h2>Envíame un Mensaje</h2>
+          
+          {status.submitted && (
+            <div className="success-message">
+              ✅ ¡Mensaje enviado con éxito! Te contactaré pronto.
+            </div>
+          )}
+
+          {status.error && (
+            <div className="error-message">
+              ❌ {status.error}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="contact-form">
+            <div className="form-group">
+              <label htmlFor="name">Nombre</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                placeholder="Tu nombre"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                placeholder="tu@email.com"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message">Mensaje</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                placeholder="¿En qué puedo ayudarte?"
+                rows="5"
+              />
+            </div>
+
+            <button 
+              type="submit" 
+              className="submit-btn"
+              disabled={status.submitting}
+            >
+              {status.submitting ? 'Enviando...' : 'Enviar Mensaje'}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Contact;

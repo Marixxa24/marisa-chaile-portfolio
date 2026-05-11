@@ -1,0 +1,4 @@
+marisasolchaile_db_user
+ZpwWEvfdGYLXrgra
+
+mongodb+srv://<db_username>:<db_password>@portfolio.ogdi1my.mongodb.net/?appName=portfolio
