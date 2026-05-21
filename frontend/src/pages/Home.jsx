@@ -146,8 +146,7 @@ const Home = () => {
   const [typedText, setTypedText] = useState("");
   const [activeSkill, setActiveSkill] = useState("frontend");
 
-  const fullText =
-    "INGENIERÍA EN SISTEMAS · FULL STACK · QA LEARNING";
+  const fullText = "INGENIERÍA EN SISTEMAS · FULL STACK · QA LEARNING";
 
   // Efecto de escritura
   useEffect(() => {
@@ -248,8 +247,8 @@ const Home = () => {
               <span className="pf-title-plain">Hola, soy</span>
               <span className="pf-title-grad">Marisa Chaile</span>
               <span className="pf-title-italic">
-                Construyendo experiencias digitales modernas,
-funcionales y pensadas para personas reales.
+                Construyendo experiencias digitales modernas, funcionales y
+                pensadas para personas reales.
               </span>
             </h1>
 
@@ -259,13 +258,16 @@ funcionales y pensadas para personas reales.
             </p>
 
             <p className="pf-desc">
-              Estudiante avanzada de Ingeniería y Licenciatura en Sistemas de Información, actualmente capacitándome en Testing QA y tecnologías multiplataforma.
-            <span className="pf-asasas">
-              <Link to="/" className="pf-sub">
-                   sobre mi.. →
-              </Link> </span>
+              Estudiante avanzada de Ingeniería y Licenciatura en Sistemas de
+              Información, actualmente capacitándome en Testing QA y tecnologías
+              multiplataforma.
+              <span className="pf-asasas">
+                <Link to="/" className="pf-sub">
+                  sobre mi.. →
+                </Link>{" "}
+              </span>
             </p>
-            
+
             <div className="pf-btn-row">
               <Link to="/projects" className="pf-btn-main">
                 Ver proyectos →
@@ -320,13 +322,19 @@ funcionales y pensadas para personas reales.
           </div>
 
           <div className="pf-hero-right">
-            <div className="pf-orb-wrapper">
-              <div className="pf-orb-ring2" />
-              <div className="pf-orb-ring1" />
-              <div className="pf-orb">
-                <div className="pf-orb-inner">
-                  <span className="pf-orb-letter">M</span>
-                  <span className="pf-orb-sub">creadora · dev</span>
+            <div className="pf-hero-right">
+              <div className="pf-orb-wrapper">
+                {/* Solo los anillos giran */}
+                <div className="pf-orb-ring2" />
+                <div className="pf-orb-ring1" />
+
+                {/* El círculo principal NO gira */}
+                <div className="pf-orb">
+                  <div className="pf-orb-inner">
+  <img src="/assets/Marisa.jpg" alt="Marisa Chaile" className="pf-orb-img" />
+  <span className="pf-orb-letter">M</span>
+  <span className="pf-orb-sub">creadora · dev</span>
+</div>
                 </div>
               </div>
             </div>
@@ -338,7 +346,7 @@ funcionales y pensadas para personas reales.
               </div>
               <div className="pf-stat-card">
                 <span className="pf-stat-number">proyectos realizados</span>
-                <span className="pf-stat-label">proyectos realizados</span>
+                <span className="pf-stat-label">+ por realizar</span>
               </div>
               <div className="pf-stat-card">
                 <span className="pf-stat-number">∞</span>
@@ -426,7 +434,7 @@ funcionales y pensadas para personas reales.
                 🎓 <strong>Educación:</strong> Ingeniería en Sistemas de
                 Información · Lic. en Sistemas de Información (UNLaR - en curso)
                 <br />
-                📚 Cursando adicionalmente: Testing QA · Java · Python
+                📚 Cursando adicionalmente: Testing QA
               </p>
             </div>
           </div>
