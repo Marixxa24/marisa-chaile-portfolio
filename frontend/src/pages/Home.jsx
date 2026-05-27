@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   FaGithub,
   FaLinkedin,
@@ -7,6 +7,11 @@ import {
   FaMapMarkerAlt,
   FaCalendarAlt,
   FaDownload,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaFigma,
+  FaPython,
 } from "react-icons/fa";
 import "../styles/Home.css";
 
@@ -145,6 +150,21 @@ const Home = () => {
   const ringRef = useRef(null);
   const [typedText, setTypedText] = useState("");
   const [activeSkill, setActiveSkill] = useState("frontend");
+  const location = useLocation();
+
+  // Scroll to section on landing
+  useEffect(() => {
+    if (location.state && location.state.scrollTo) {
+      const id = location.state.scrollTo.substring(1);
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 150);
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
 
   const fullText = "INGENIERÍA EN SISTEMAS · FULL STACK · QA LEARNING";
 
@@ -236,7 +256,7 @@ const Home = () => {
         {/* ──────────────────────────────────────── */}
         {/* HERO SECTION */}
         {/* ──────────────────────────────────────── */}
-        <section className="pf-hero">
+        <section id="hero" className="pf-hero">
           <div className="pf-hero-left">
             <div className="pf-badge">
               <span className="pf-badge-dot" />
@@ -262,9 +282,16 @@ const Home = () => {
               Información, actualmente capacitándome en Testing QA y tecnologías
               multiplataforma.
               <span className="pf-asasas">
-                <Link to="/" className="pf-sub">
+                <a 
+                  href="#about" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  }} 
+                  className="pf-sub"
+                >
                   sobre mi.. →
-                </Link>{" "}
+                </a>{" "}
               </span>
             </p>
 
@@ -322,20 +349,20 @@ const Home = () => {
           </div>
 
           <div className="pf-hero-right">
-            <div className="pf-hero-right">
-              <div className="pf-orb-wrapper">
-                {/* Solo los anillos giran */}
-                <div className="pf-orb-ring2" />
-                <div className="pf-orb-ring1" />
-
-                {/* El círculo principal NO gira */}
-                <div className="pf-orb">
-                  <div className="pf-orb-inner">
-  <img src="/assets/Marisa.jpg" alt="Marisa Chaile" className="pf-orb-img" />
-  <span className="pf-orb-letter">M</span>
-  <span className="pf-orb-sub">creadora · dev</span>
-</div>
-                </div>
+            <div className="pf-character-container">
+              {/* Floating tech icons */}
+              <div className="pf-floating-icon fi-react" title="React"><FaReact /></div>
+              <div className="pf-floating-icon fi-node" title="Node.js"><FaNodeJs /></div>
+              <div className="pf-floating-icon fi-git" title="Git"><FaGitAlt /></div>
+              <div className="pf-floating-icon fi-figma" title="Figma"><FaFigma /></div>
+              <div className="pf-floating-icon fi-python" title="Python"><FaPython /></div>
+              
+              <div className="pf-character-image-wrapper">
+                <img 
+                  src="/assets/girl_sitting.png" 
+                  alt="Marisa Chaile - 3D Avatar" 
+                  className="pf-character-img" 
+                />
               </div>
             </div>
 
@@ -351,6 +378,56 @@ const Home = () => {
               <div className="pf-stat-card">
                 <span className="pf-stat-number">∞</span>
                 <span className="pf-stat-label">Mate 🧉 · código</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ──────────────────────────────────────── */}
+        {/* ABOUT ME SECTION */}
+        {/* ──────────────────────────────────────── */}
+        <section id="about" className="pf-about-section">
+          <div className="section-container">
+            <div className="about-grid">
+              <div className="about-left">
+                <div className="about-character-wrapper">
+                  <img 
+                    src="/assets/girl_standing.png" 
+                    alt="Marisa Chaile - 3D Standing Avatar" 
+                    className="about-char-img" 
+                  />
+                </div>
+              </div>
+              
+              <div className="about-right">
+                <div className="about-card">
+                  <h2 className="about-title">Sobre mí</h2>
+                  <ul className="about-list">
+                    <li>
+                      <span className="about-bullet" />
+                      <div>
+                        <strong>Estudiante Avanzada de Sistemas:</strong> Cursando Ingeniería en Sistemas de Información en la Universidad Nacional de La Rioja, apasionada por la tecnología, el código y la computación.
+                      </div>
+                    </li>
+                    <li>
+                      <span className="about-bullet" />
+                      <div>
+                        <strong>Enfoque Full Stack & Calidad:</strong> Comprometida con la creación de experiencias web completas y robustas, desde el backend hasta el frontend, asegurando siempre altos estándares con QA Testing.
+                      </div>
+                    </li>
+                    <li>
+                      <span className="about-bullet" />
+                      <div>
+                        <strong>Aprendizaje Continuo:</strong> Explorando nuevas fronteras tecnológicas como la integración de Inteligencia Artificial Generativa y desarrollo móvil para ofrecer soluciones de vanguardia.
+                      </div>
+                    </li>
+                  </ul>
+                  <div className="about-card-action">
+                    <Link to="/contact" className="about-btn-gold">
+                      Contactarme →
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
