@@ -1,67 +1,55 @@
-.skills-page {
-  min-height: 100vh;
-  padding: 6rem 2rem 2rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+:root {
+  --pink-primary: #e83e8c;
+  --pink-soft: #e789ba;
+  --lavender: #c084fc;
+  --bg-dark: #0a0a14;
+  --bg-card: rgba(232, 62, 140, 0.05);
+  --text-light: #f8fafc;
+  --text-dim: #a0a0b0;
+  --border-glow: rgba(232, 62, 140, 0.2);
+  --gradient-pink: linear-gradient(135deg, #e83e8c, #c084fc, #f472b6);
 }
 
-.skills-header {
-  text-align: center;
-  margin-bottom: 3rem;
+.pf-skills-section {
+  position: relative;
+  z-index: 5;
 }
 
-.skills-subtitle {
-  font-size: 1.2rem;
-  color: var(--dark);
-  opacity: 0.8;
-  max-width: 600px;
-  margin: 1rem auto 0;
-}
-
-/* Filtros */
-.skills-filter {
+.skills-tabs {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
   flex-wrap: wrap;
 }
 
-.filter-btn {
-  padding: 0.75rem 1.5rem;
-  border: 2px solid var(--primary);
+.skill-tab {
   background: transparent;
-  color: var(--primary);
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1rem;
+  border: 1px solid rgba(232, 62, 140, 0.2);
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(248, 250, 252, 0.6);
+  cursor: none;
+  transition: all 0.2s;
 }
 
-.filter-btn:hover {
-  background: var(--primary);
+.skill-tab:hover {
+  border-color: var(--pink-primary);
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
 }
 
-.filter-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+.skill-tab.active {
+  background: var(--gradient-pink);
   border-color: transparent;
-}
-
-/* Grid de habilidades */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto 4rem;
+  color: white;
 }
 
 .skill-card {
-  background: white;
+  /* background:#c084fc; */
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(232, 62, 140, 0.1);
   border-radius: 15px;
   padding: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -70,10 +58,10 @@
   overflow: hidden;
   animation: fadeInUp 0.5s ease;
 }
-
 .skill-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(190, 6, 92, 0.89);
+  background:linear-gradient(10deg, var(--pink-primary), transparent) ;
+  transform: translateX(5px);
 }
 
 .skill-card::before {
@@ -83,7 +71,6 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -125,10 +112,11 @@
 .skill-icon.figma { color: #F24E1E; }
 .skill-icon.default { color: var(--primary); }
 
+
 .skill-name {
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--dark);
+  color: rgba(248, 250, 252, 0.8);
 }
 
 /* Barra de progreso */
@@ -301,4 +289,53 @@
     flex-direction: column;
     text-align: center;
   }
+}
+/* Estilos Base para las Tarjetas Bento */
+.magic-bento-card {
+  position: relative;
+  background-color: rgba(20, 20, 20, 0.8); /* Fondo oscuro estilo bento */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.3s ease;
+}
+
+.magic-bento-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* El truco del Brillo Radial (Magic Bento) */
+.magic-bento-card .bento-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(255, 255, 255, 0.06), /* Cambia esto si quieres un brillo de color (ej. morado/azul) */
+    transparent 40%
+  );
+  z-index: 1;
+  pointer-events: none; /* Crucial para que no bloquee los clicks */
+}
+
+/* El contenedor del contenido debe ir por encima del brillo */
+.magic-bento-card .bento-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px; /* Ajusta el padding de tus tarjetas aquí */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Adapta tu Grid si quieres el look bento asimétrico (Opcional) */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 30px;
 }

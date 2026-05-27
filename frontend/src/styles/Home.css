@@ -180,7 +180,7 @@ body {
   font-family: 'Caveat', cursive;
   font-style: italic;
   font-weight: 400;
-  font-size: 0.50em;
+  font-size: 0.40em;
   color: rgba(248, 250, 252, 0.5);
   display: block;
   margin-top: 0.1em;
@@ -550,68 +550,7 @@ body {
 }
 
 /* Skills Section */
-.pf-skills-section {
-  position: relative;
-  z-index: 5;
-  background: radial-gradient(ellipse at 50% 0%, rgba(232, 62, 140, 0.03), transparent);
-  border-bottom: 1px solid rgba(232, 62, 140, 0.08);
-}
 
-.skills-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.skill-tab {
-  background: transparent;
-  border: 1px solid rgba(232, 62, 140, 0.2);
-  padding: 0.5rem 1.5rem;
-  border-radius: 30px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(248, 250, 252, 0.6);
-  cursor: none;
-  transition: all 0.2s;
-}
-
-.skill-tab:hover {
-  border-color: var(--lavender);
-  color: var(--lavender);
-}
-
-.skill-tab.active {
-  background: var(--gradient-pink);
-  border-color: transparent;
-  color: white;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 0.8rem;
-}
-
-.skill-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(232, 62, 140, 0.1);
-  border-radius: 12px;
-  padding: 0.8rem 1rem;
-  transition: all 0.2s;
-}
-
-.skill-card:hover {
-  border-color: rgba(232, 62, 140, 0.3);
-  background: rgba(232, 62, 140, 0.05);
-  transform: translateX(5px);
-}
-
-.skill-name {
-  font-size: 13px;
-  color: rgba(248, 250, 252, 0.8);
-}
 
 /* Experience Section */
 .pf-experience-section {
@@ -1019,6 +958,7 @@ body {
 .pf-character-img {
   width: 100%;
   height: auto;
+  border-radius: 20px;
   object-fit: contain;
   filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 40px rgba(108, 43, 217, 0.35));
   animation: floatCharacter 6s ease-in-out infinite;
@@ -1143,6 +1083,7 @@ body {
 .about-char-img {
   width: 90%;
   height: auto;
+  border-radius: 20px;
   object-fit: contain;
   filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 30px rgba(255, 215, 0, 0.15));
   animation: floatStanding 6s ease-in-out infinite;
