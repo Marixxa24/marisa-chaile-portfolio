@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 import '../styles/Contact.css';
 
 const Contact = () => {
@@ -62,15 +62,17 @@ const Contact = () => {
             <FaEnvelope className="info-icon" />
             <div>
               <h3>Email</h3>
-              <a href="mailto:tu@email.com">tu@email.com</a>
+              <a href="mailto:marisasolchaile@gmail.com">marisasolchaile@gmail.com</a>
             </div>
           </div>
 
           <div className="info-item">
-            <FaPhone className="info-icon" />
+            <FaLinkedin className="info-icon" />
             <div>
-              <h3>Teléfono</h3>
-              <a href="tel:+1234567890">+123 456 7890</a>
+              <h3>LinkedIn</h3>
+              <a href="https://www.linkedin.com/in/marisa-chaile/" target="_blank" rel="noreferrer">
+                marisasolchaile
+              </a>
             </div>
           </div>
 
@@ -78,7 +80,7 @@ const Contact = () => {
             <FaMapMarkerAlt className="info-icon" />
             <div>
               <h3>Ubicación</h3>
-              <p>Tu Ciudad, País</p>
+              <p>La Rioja, Argentina</p>
             </div>
           </div>
 
@@ -88,11 +90,11 @@ const Contact = () => {
               <a href="https://github.com/tuusuario" target="_blank" rel="noreferrer">
                 <FaGithub />
               </a>
-              <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noreferrer">
+              {/* <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noreferrer">
                 <FaLinkedin />
-              </a>
-              <a href="https://twitter.com/tuusuario" target="_blank" rel="noreferrer">
-                <FaTwitter />
+              </a> */}
+              <a href="https://www.instagram.com/marisasolchaile/" target="_blank" rel="noreferrer">
+                <FaInstagram />
               </a>
             </div>
           </div>

@@ -39,34 +39,39 @@ const FLOATING_TECHS = [
 
 // Habilidades por categoría
 const SKILLS_CATEGORIES = {
-  frontend: [
-    "React",
-    "React Native",
-    "HTML5",
-    "CSS3",
-    "JavaScript (ES6+)",
-    "Tailwind CSS",
-    "Material UI (MUI)",
-    "Vite",
-  ],
+frontend: [
+  "React",
+  "Next.js", 
+  "JavaScript (ES6+)",
+  "Tailwind CSS",
+  "Material UI (MUI)",
+  "Bootstrap",
+  "HTML5 / CSS3",
+  "Vite",
+],
   backend: [
     "Node.js",
     "Express",
-    "Java",
+    "Java / Spring Boot",
     "Python",
     "REST APIs",
     "JWT",
-    "Mongoose",
-    "Postman",
   ],
-  database: ["MongoDB", "Firebase Auth", "Firestore"],
+database: [
+  "MongoDB",
+  "PostgreSQL",
+  "MySQL",
+  "Mongoose",
+],
   tools: [
-    "Git/GitHub",
+    "Git / GitHub",
+    "Vercel / Railway",
+    "Cloudinary",
     "WordPress",
-    "IA Generativa (OpenAI API)",
-    "GitHub Copilot",
-    "Prompt Engineering",
-    "Metodologías Ágiles/Scrum",
+    "Figma",
+    "UML",
+    "OpenAI API",
+    "Scrum / Agile",
   ],
 };
 
@@ -146,8 +151,6 @@ const PROJECTS = [
 
 const Home = () => {
   const canvasRef = useRef(null);
-  const cursorRef = useRef(null);
-  const ringRef = useRef(null);
   const [typedText, setTypedText] = useState("");
   const [activeSkill, setActiveSkill] = useState("frontend");
   const location = useLocation();
@@ -226,28 +229,8 @@ const Home = () => {
     };
   }, []);
 
-  // Cursor personalizado
-  useEffect(() => {
-    const cursor = cursorRef.current;
-    const ring = ringRef.current;
-    if (!cursor || !ring) return;
-    const move = (e) => {
-      cursor.style.left = e.clientX + "px";
-      cursor.style.top = e.clientY + "px";
-      setTimeout(() => {
-        ring.style.left = e.clientX + "px";
-        ring.style.top = e.clientY + "px";
-      }, 50);
-    };
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
-  }, []);
-
   return (
     <>
-      <div ref={cursorRef} className="pf-cursor" />
-      <div ref={ringRef} className="pf-cursor-ring" />
-
       <div className="home">
         <canvas ref={canvasRef} className="pf-canvas" />
         <div className="pf-grid-overlay" />
@@ -267,8 +250,7 @@ const Home = () => {
               <span className="pf-title-plain">Hola, soy</span>
               <span className="pf-title-grad">Marisa Chaile</span>
               <span className="pf-title-italic">
-                Construyendo experiencias digitales modernas, funcionales y
-                pensadas para personas reales.
+                Construyendo experiencias digitales modernas y funcionales.
               </span>
             </h1>
 
@@ -290,7 +272,7 @@ const Home = () => {
                   }} 
                   className="pf-sub"
                 >
-                  sobre mi.. →
+                  
                 </a>{" "}
               </span>
             </p>
@@ -359,7 +341,7 @@ const Home = () => {
               
               <div className="pf-character-image-wrapper">
                 <img 
-                  src="/assets/girl_sitting.png" 
+                  src="/assets/girl_standing.png " 
                   alt="Marisa Chaile - 3D Avatar" 
                   className="pf-character-img" 
                 />
@@ -392,8 +374,8 @@ const Home = () => {
               <div className="about-left">
                 <div className="about-character-wrapper">
                   <img 
-                    src="/assets/girl_standing.png" 
-                    alt="Marisa Chaile - 3D Standing Avatar" 
+                    src="/assets/girl_sitting.png" 
+                    alt="Marisa Chaile - 3D Sitting Avatar" 
                     className="about-char-img" 
                   />
                 </div>
@@ -436,7 +418,7 @@ const Home = () => {
         {/* ──────────────────────────────────────── */}
         {/* SKILLS SECTION */}
         {/* ──────────────────────────────────────── */}
-        <section className="pf-skills-section">
+        <section id="skills" className="pf-skills-section">
           <div className="section-container">
             <div className="section-header">
               <span className="section-badge">01</span>

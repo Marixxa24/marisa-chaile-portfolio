@@ -39,7 +39,7 @@ const Navbar = () => {
     { name: 'Inicio', path: '/', hash: '#hero', id: 'hero', icon: <FaHome /> },
     { name: 'Sobre mí', path: '/', hash: '#about', id: 'about', icon: <FaUser /> },
     { name: 'Proyectos', path: '/projects', icon: <FaFolderOpen /> },
-    { name: 'Habilidades', path: '/skills', icon: <FaCodeBranch /> },
+    { name: 'Habilidades', path: '/', hash: '#skills', id: 'skills', icon: <FaCodeBranch /> },
     { name: 'Contacto', path: '/contact', icon: <FaEnvelope /> },
   ];
 
