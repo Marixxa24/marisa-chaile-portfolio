@@ -105,7 +105,7 @@ const Navbar = () => {
         </button>
 
         {/* Mobile Menu Overlay */}
-        <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
+        {/* <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
           <div className="mobile-menu-container">
             <div className="mobile-menu-header">
               <span className="mobile-menu-title">Navegación</span>
@@ -143,7 +143,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
