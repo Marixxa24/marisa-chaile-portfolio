@@ -24,13 +24,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Modelos (asegúrate de que estos archivos existan)
-const Project = require('./models/Project');
-const Skill = require('./models/Skill');
+// Rutas modularizadas (controladores usan los modelos)
+const projectsRouter = require('./routes/projects');
+const skillsRouter = require('./routes/skills');
 
 // Conexión a MongoDB - VERSIÓN CORREGIDA (sin opciones obsoletas)
 console.log('🔄 Intentando conectar a MongoDB...');
-console.log('📍 URI:', process.env.MONGODB_URI.substring(0, 50) + '...');
+// console.log('📍 URI:', process.env.MONGODB_URI.substring(0, 50) + '...');
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
@@ -52,23 +52,9 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/api/projects', async (req, res) => {
-    try {
-        const projects = await Project.find();
-        res.json(projects);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-});
+app.use('/api/projects', projectsRouter);
+app.use('/api/skills', skillsRouter);
 
-app.get('/api/skills', async (req, res) => {
-    try {
-        const skills = await Skill.find();
-        res.json(skills);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

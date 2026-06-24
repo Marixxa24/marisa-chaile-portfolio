@@ -14,7 +14,8 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/projects');
+      const apiBase = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+      const response = await axios.get(`${apiBase}/api/projects`);
       setProjects(response.data);
       setLoading(false);
     } catch (error) {
@@ -59,17 +60,17 @@ const Projects = () => {
       <div className="projects-grid">
         {filteredProjects.map(project => (
           <div key={project._id} className="project-card">
-            <img 
-              src={project.image} 
-              alt={project.title}
-              className="project-image"
-            />
+            {project.image && (
+              <div className="project-image">
+                <img src={project.image} alt={project.title} loading="lazy" />
+              </div>
+            )}
             <div className="project-content">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
-              <div className="tech-stack">
+              <div className="project-tech">
                 {project.technologies.map(tech => (
-                  <span key={tech} className="tech-tag">{tech}</span>
+                  <span key={tech} className="project-tech-tag">{tech}</span>
                 ))}
               </div>
               <div className="project-links">

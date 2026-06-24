@@ -39,16 +39,16 @@ const FLOATING_TECHS = [
 
 // Habilidades por categoría
 const SKILLS_CATEGORIES = {
-frontend: [
-  "React",
-  "Next.js", 
-  "JavaScript (ES6+)",
-  "Tailwind CSS",
-  "Material UI (MUI)",
-  "Bootstrap",
-  "HTML5 / CSS3",
-  "Vite",
-],
+  frontend: [
+    "React",
+    "Next.js",
+    "JavaScript (ES6+)",
+    "Tailwind CSS",
+    "Material UI (MUI)",
+    "Bootstrap",
+    "HTML5 / CSS3",
+    "Vite",
+  ],
   backend: [
     "Node.js",
     "Express",
@@ -57,12 +57,12 @@ frontend: [
     "REST APIs",
     "JWT",
   ],
-database: [
-  "MongoDB",
-  "PostgreSQL",
-  "MySQL",
-  "Mongoose",
-],
+  database: [
+    "MongoDB",
+    "PostgreSQL",
+    "MySQL",
+    "Mongoose",
+  ],
   tools: [
     "Git / GitHub",
     "Vercel / Railway",
@@ -135,6 +135,7 @@ const PROJECTS = [
       "Carrito de compras",
       "Pasarela de pagos",
     ],
+    img: "/assets/homee.jpeg",
   },
   {
     name: "Portfolio Personal",
@@ -146,6 +147,7 @@ const PROJECTS = [
       "Tecnologías flotantes",
       "Formulario de contacto",
     ],
+    img: "/assets/projects/portfolio.png",
   },
 ];
 
@@ -262,19 +264,17 @@ const Home = () => {
             <p className="pf-desc">
               Estudiante avanzada de Ingeniería y Licenciatura en Sistemas de
               Información, actualmente capacitándome en Testing QA y tecnologías
-              multiplataforma.
-              <span className="pf-asasas">
-                <a 
-                  href="#about" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-                  }} 
-                  className="pf-sub"
-                >
-                  
-                </a>{" "}
-              </span>
+              multiplataforma.{" "}
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="pf-link-about"
+              >
+                Sobre mí &rarr;
+              </a>
             </p>
 
             <div className="pf-btn-row">
@@ -304,12 +304,6 @@ const Home = () => {
                 </span>
                 <span>La Rioja, Argentina</span>
               </div>
-              <div className="pf-info-item">
-                <span className="pf-info-label">
-                  <FaCalendarAlt />
-                </span>
-                <span>Disponible desde 2025</span>
-              </div>
             </div>
 
             <div className="pf-social-row">
@@ -338,12 +332,12 @@ const Home = () => {
               <div className="pf-floating-icon fi-git" title="Git"><FaGitAlt /></div>
               <div className="pf-floating-icon fi-figma" title="Figma"><FaFigma /></div>
               <div className="pf-floating-icon fi-python" title="Python"><FaPython /></div>
-              
+
               <div className="pf-character-image-wrapper">
-                <img 
-                  src="/assets/girl_standing.png " 
-                  alt="Marisa Chaile - 3D Avatar" 
-                  className="pf-character-img" 
+                <img
+                  src="/assets/girl_standing.png "
+                  alt="Marisa Chaile - 3D Avatar"
+                  className="pf-character-img"
                 />
               </div>
             </div>
@@ -373,14 +367,14 @@ const Home = () => {
             <div className="about-grid">
               <div className="about-left">
                 <div className="about-character-wrapper">
-                  <img 
-                    src="/assets/girl_sitting.png" 
-                    alt="Marisa Chaile - 3D Sitting Avatar" 
-                    className="about-char-img" 
+                  <img
+                    src="/assets/girl_sitting.png"
+                    alt="Marisa Chaile - 3D Sitting Avatar"
+                    className="about-char-img"
                   />
                 </div>
               </div>
-              
+
               <div className="about-right">
                 <div className="about-card">
                   <h2 className="about-title">Sobre mí</h2>
@@ -388,19 +382,31 @@ const Home = () => {
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>Estudiante Avanzada de Sistemas:</strong> Cursando Ingeniería en Sistemas de Información en la Universidad Nacional de La Rioja, apasionada por la tecnología, el código y la computación.
+                        <strong>🎓 Estudiante avanzada:</strong> cursando Licenciatura en Sistemas de Información (UNLaR), con Ingeniería en Sistemas en paralelo. Apasionada por la tecnología, el código y la computación.
                       </div>
                     </li>
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>Enfoque Full Stack & Calidad:</strong> Comprometida con la creación de experiencias web completas y robustas, desde el backend hasta el frontend, asegurando siempre altos estándares con QA Testing.
+                        <strong>🔬 Investigación & Gestión:</strong> participo en un proyecto de IA Generativa aplicada a educación en la UNLaR y formo parte del Consejo Consultivo de mi carrera.
                       </div>
                     </li>
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>Aprendizaje Continuo:</strong> Explorando nuevas fronteras tecnológicas como la integración de Inteligencia Artificial Generativa y desarrollo móvil para ofrecer soluciones de vanguardia.
+                        <strong>⚙️ Enfoque Full Stack & Calidad:</strong> comprometida con experiencias web robustas, desde el backend hasta el frontend, siempre con altos estándares de QA Testing.
+                      </div>
+                    </li>
+                    <li>
+                      <span className="about-bullet" />
+                      <div>
+                        <strong>📚 Aprendizaje Continuo:</strong> explorando IA Generativa y desarrollo móvil para ofrecer soluciones de vanguardia.
+                      </div>
+                    </li>
+                    <li>
+                      <span className="about-bullet" />
+                      <div>
+                        <strong>🎯 Busco rol trainee o junior</strong> en desarrollo full stack, frontend o QA Testing — área en la que me especializo actualmente. Abierta a freelance o relación de dependencia.
                       </div>
                     </li>
                   </ul>
@@ -513,6 +519,11 @@ const Home = () => {
             <div className="projects-grid">
               {PROJECTS.map((project, idx) => (
                 <div key={idx} className="project-card">
+                  {project.img && (
+                    <div className="project-image">
+                      <img src={project.img} alt={project.name} loading="lazy" />
+                    </div>
+                  )}
                   <h3>{project.name}</h3>
                   <p>{project.description}</p>
                   <div className="project-tech">
