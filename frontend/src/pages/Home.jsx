@@ -50,17 +50,6 @@ const SKILLS_CATEGORIES = {
     "HTML5 / CSS3",
     "Vite",
   ],
-  // eslint-disable-next-line no-dupe-keys
-  frontend: [
-    "React",
-    "Next.js",
-    "JavaScript (ES6+)",
-    "Tailwind CSS",
-    "Material UI (MUI)",
-    "Bootstrap",
-    "HTML5 / CSS3",
-    "Vite",
-  ],
   backend: [
     "Node.js",
     "Express",
@@ -75,8 +64,6 @@ const SKILLS_CATEGORIES = {
     "MySQL",
     "Mongoose",
   ],
-  // eslint-disable-next-line no-dupe-keys
-  database: ["MongoDB", "PostgreSQL", "MySQL", "Mongoose"],
   tools: [
     "Git / GitHub",
     "Vercel / Railway",
@@ -127,14 +114,46 @@ const EXPERIENCES = [
 
 // Certificaciones
 const CERTIFICATIONS = [
-  "Proyecto PILAR TECNO 6ta Edición - MERN STACK",
-  "Argentina Programa - Introducción a la programación",
-  "Desarrollo web con React js - UTN",
-  "Mujeres Programadoras - Núcleo del conocimiento",
-  "Git - GitHub_TodoCode",
-  "PYTHON - FRONT END 2024",
-  "WordPress - Canvas",
-  "Testing QA (en curso)",
+  {
+    name: 'Proyecto PILAR TECNO 6ta Edición - MERN STACK',
+    image: 'https://drive.google.com/thumbnail?id=1LWHny5CtG4AyZeyDoX61XXt97oWvGqVX&sz=w400',
+    link: 'https://drive.google.com/file/d/1LWHny5CtG4AyZeyDoX61XXt97oWvGqVX/view?usp=sharing'
+  },
+  {
+    name: 'Argentina Programa - Introducción a la programación',
+    image: 'https://drive.google.com/thumbnail?id=2DEF456GHI789&sz=w400',
+    link: 'https://drive.google.com/file/d/2DEF456GHI789/view'
+  },
+  {
+    name: 'Desarrollo web con React js - UTN',
+    image: 'https://drive.google.com/thumbnail?id=1eQ0zmqmLSy4IQUFTnjrVXqYherjCY591&sz=w400',
+    link: 'https://drive.google.com/file/d/1eQ0zmqmLSy4IQUFTnjrVXqYherjCY591/view?usp=sharing'
+  },
+  {
+    name: 'Mujeres Programadoras - Núcleo del conocimiento',
+    image: 'https://drive.google.com/thumbnail?id=4JKL012MNO345&sz=w400',
+    link: 'https://drive.google.com/file/d/4JKL012MNO345/view'
+  },
+  {
+    name: 'Git - GitHub_TodoCode',
+    image: 'https://drive.google.com/thumbnail?id=1VRrhEFSTqzcnZd0mckO3BeWx3By0SuLM&sz=w400',
+    link: 'https://drive.google.com/file/d/1VRrhEFSTqzcnZd0mckO3BeWx3By0SuLM/view?usp=sharing'
+  },
+ {
+  name: 'PYTHON - FRONT END 2024',
+  image: 'https://drive.google.com/uc?export=view&id=1PykHXJ5TXL60lzI_aG9jnncsJ9mqWGBv',
+  link: 'https://drive.google.com/file/d/1PykHXJ5TXL60lzI_aG9jnncsJ9mqWGBv/view?usp=sharing'
+},
+  {
+    name: 'WordPress - Canvas',
+    image: 'https://drive.google.com/thumbnail?id=7STU901VWX234&sz=w400',
+    link: 'https://drive.google.com/file/d/7STU901VWX234/view'
+  },
+  {
+    name: 'Testing QA (en curso)',
+    image: 'https://drive.google.com/thumbnail?id=8VWX234YZA567&sz=w400',
+    link: 'https://drive.google.com/file/d/8VWX234YZA567/view'
+  }
 ];
 
 // Proyectos destacados
@@ -166,6 +185,36 @@ const PROJECTS = [
     img: "/assets/projects/portfolio.png",
   },
 ];
+
+// ── Componente CertCard con manejo de error de imagen ──
+const CertCard = ({ cert }) => {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <a
+      href={cert.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="cert-card"
+    >
+      <div className="cert-image-wrapper">
+        {!imgError ? (
+          <img
+            src={cert.image}
+            alt={cert.name}
+            className="cert-image"
+            loading="lazy"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className="cert-fallback">🎓</div>
+        )}
+      </div>
+      <span className="cert-name">{cert.name}</span>
+      <span className="cert-view">Ver certificado →</span>
+    </a>
+  );
+};
 
 const Home = () => {
   const canvasRef = useRef(null);
@@ -351,7 +400,7 @@ const Home = () => {
 
               <div className="pf-character-image-wrapper">
                 <img
-                  src="/assets/girl_standing.png "
+                  src="/assets/girl_standing.png"
                   alt="Marisa Chaile - 3D Avatar"
                   className="pf-character-img"
                 />
@@ -378,7 +427,7 @@ const Home = () => {
         {/* ──────────────────────────────────────── */}
         {/* ABOUT ME SECTION */}
         {/* ──────────────────────────────────────── */}
-<section id="about" className="pf-about-section">
+        <section id="about" className="pf-about-section">
           <div className="section-container">
             <div className="about-grid">
               <div className="about-left">
@@ -589,10 +638,7 @@ const Home = () => {
 
             <div className="certifications-grid">
               {CERTIFICATIONS.map((cert, idx) => (
-                <div key={idx} className="cert-card">
-                  <span className="cert-icon">📜</span>
-                  <span className="cert-name">{cert}</span>
-                </div>
+                <CertCard key={idx} cert={cert} />
               ))}
             </div>
           </div>
