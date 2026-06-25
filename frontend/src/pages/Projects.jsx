@@ -14,9 +14,7 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/projects`,
-      );
+      const response = await axios.get('http://localhost:5000/api/projects');
       setProjects(response.data);
       setLoading(false);
     } catch (error) {
@@ -60,8 +58,8 @@ const Projects = () => {
       <div className="projects-grid">
         {filteredProjects.map((project) => (
           <div key={project._id} className="project-card">
-            <img
-              src={project.image}
+            <img 
+              src={project.image} 
               alt={project.title}
               className="project-image"
             />
@@ -69,10 +67,8 @@ const Projects = () => {
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <div className="tech-stack">
-                {project.technologies.map((tech) => (
-                  <span key={tech} className="tech-tag">
-                    {tech}
-                  </span>
+                {project.technologies.map(tech => (
+                  <span key={tech} className="tech-tag">{tech}</span>
                 ))}
               </div>
               <div className="project-links">

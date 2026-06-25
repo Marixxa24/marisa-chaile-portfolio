@@ -5,6 +5,7 @@ import {
   FaLinkedin,
   FaEnvelope,
   FaMapMarkerAlt,
+  // eslint-disable-next-line no-unused-vars
   FaCalendarAlt,
   FaDownload,
   FaReact,
@@ -49,6 +50,17 @@ const SKILLS_CATEGORIES = {
     "HTML5 / CSS3",
     "Vite",
   ],
+  // eslint-disable-next-line no-dupe-keys
+  frontend: [
+    "React",
+    "Next.js",
+    "JavaScript (ES6+)",
+    "Tailwind CSS",
+    "Material UI (MUI)",
+    "Bootstrap",
+    "HTML5 / CSS3",
+    "Vite",
+  ],
   backend: [
     "Node.js",
     "Express",
@@ -57,6 +69,13 @@ const SKILLS_CATEGORIES = {
     "REST APIs",
     "JWT",
   ],
+  database: [
+    "MongoDB",
+    "PostgreSQL",
+    "MySQL",
+    "Mongoose",
+  ],
+  // eslint-disable-next-line no-dupe-keys
   database: ["MongoDB", "PostgreSQL", "MySQL", "Mongoose"],
   tools: [
     "Git / GitHub",
@@ -131,6 +150,7 @@ const PROJECTS = [
       "Generación automática de fixtures",
       "Panel de administración para propietarios",
     ],
+    img: "/assets/homee.jpeg",
   },
   {
     name: "Portfolio Personal",
@@ -143,6 +163,7 @@ const PROJECTS = [
       "Formulario de contacto funcional",
       "Cursor personalizado",
     ],
+    img: "/assets/projects/portfolio.png",
   },
 ];
 
@@ -259,19 +280,17 @@ const Home = () => {
             <p className="pf-desc">
               Estudiante avanzada de Ingeniería y Licenciatura en Sistemas de
               Información, actualmente capacitándome en Testing QA y tecnologías
-              multiplataforma.
-              <span className="pf-asasas">
-                <a
-                  href="#about"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("about")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="pf-sub"
-                ></a>{" "}
-              </span>
+              multiplataforma.{" "}
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="pf-link-about"
+              >
+                Sobre mí &rarr;
+              </a>
             </p>
 
             <div className="pf-btn-row">
@@ -301,12 +320,6 @@ const Home = () => {
                 </span>
                 <span>La Rioja, Argentina</span>
               </div>
-              <div className="pf-info-item">
-                <span className="pf-info-label">
-                  <FaCalendarAlt />
-                </span>
-                <span>Disponible desde 2025</span>
-              </div>
             </div>
 
             <div className="pf-social-row">
@@ -330,21 +343,11 @@ const Home = () => {
           <div className="pf-hero-right">
             <div className="pf-character-container">
               {/* Floating tech icons */}
-              <div className="pf-floating-icon fi-react" title="React">
-                <FaReact />
-              </div>
-              <div className="pf-floating-icon fi-node" title="Node.js">
-                <FaNodeJs />
-              </div>
-              <div className="pf-floating-icon fi-git" title="Git">
-                <FaGitAlt />
-              </div>
-              <div className="pf-floating-icon fi-figma" title="Figma">
-                <FaFigma />
-              </div>
-              <div className="pf-floating-icon fi-python" title="Python">
-                <FaPython />
-              </div>
+              <div className="pf-floating-icon fi-react" title="React"><FaReact /></div>
+              <div className="pf-floating-icon fi-node" title="Node.js"><FaNodeJs /></div>
+              <div className="pf-floating-icon fi-git" title="Git"><FaGitAlt /></div>
+              <div className="pf-floating-icon fi-figma" title="Figma"><FaFigma /></div>
+              <div className="pf-floating-icon fi-python" title="Python"><FaPython /></div>
 
               <div className="pf-character-image-wrapper">
                 <img
@@ -375,7 +378,7 @@ const Home = () => {
         {/* ──────────────────────────────────────── */}
         {/* ABOUT ME SECTION */}
         {/* ──────────────────────────────────────── */}
-        <section id="about" className="pf-about-section">
+<section id="about" className="pf-about-section">
           <div className="section-container">
             <div className="about-grid">
               <div className="about-left">
@@ -395,40 +398,31 @@ const Home = () => {
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>Estudiante Avanzada — UNLaR:</strong> Cursando
-                        Ingeniería en Sistemas de Información y Licenciatura en
-                        Sistemas de Información, complementando mi formación con
-                        capacitación en QA Testing y tecnologías de desarrollo
-                        web y multiplataforma.
+                        <strong>🎓 Estudiante avanzada:</strong> cursando Licenciatura en Sistemas de Información (UNLaR), con Ingeniería en Sistemas en paralelo. Apasionada por la tecnología, el código y la computación.
                       </div>
                     </li>
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>Full Stack MERN:</strong> Construyo aplicaciones
-                        completas con MongoDB, Express, React y Node.js — desde
-                        la arquitectura del backend hasta la interfaz,
-                        integrando autenticación, APIs REST y servicios en la
-                        nube.
+                        <strong>🔬 Investigación & Gestión:</strong> participo en un proyecto de IA Generativa aplicada a educación en la UNLaR y formo parte del Consejo Consultivo de mi carrera.
                       </div>
                     </li>
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>Investigación & Gestión:</strong>Integrante de
-                        un proyecto de investigación sobre IA Generativa
-                        aplicada a la educación y representante estudiantil en
-                        el Consejo Consultivo de la carrera.
+                        <strong>⚙️ Enfoque Full Stack & Calidad:</strong> comprometida con experiencias web robustas, desde el backend hasta el frontend, siempre con altos estándares de QA Testing.
                       </div>
                     </li>
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>Objetivo profesional:</strong>incorporarme como
-                        desarrolladora trainee o junior en equipos de desarrollo
-                        Frontend, Full Stack o QA, aportando aprendizaje
-                        continuo, compromiso y capacidad de resolución de
-                        problemas.
+                        <strong>📚 Aprendizaje Continuo:</strong> explorando IA Generativa y desarrollo móvil para ofrecer soluciones de vanguardia.
+                      </div>
+                    </li>
+                    <li>
+                      <span className="about-bullet" />
+                      <div>
+                        <strong>🎯 Busco rol trainee o junior</strong> en desarrollo full stack, frontend o QA Testing — área en la que me especializo actualmente. Abierta a freelance o relación de dependencia.
                       </div>
                     </li>
                   </ul>
@@ -542,6 +536,11 @@ const Home = () => {
             <div className="projects-grid">
               {PROJECTS.map((project, idx) => (
                 <div key={idx} className="project-card">
+                  {project.img && (
+                    <div className="project-image">
+                      <img src={project.img} alt={project.name} loading="lazy" />
+                    </div>
+                  )}
                   <h3>{project.name}</h3>
                   <p>{project.description}</p>
                   <div className="project-tech">
