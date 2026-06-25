@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import '../styles/Contact.css';
 
 const Contact = () => {
@@ -26,17 +26,13 @@ const Contact = () => {
     e.preventDefault();
     setStatus({ submitting: true, submitted: false, error: null });
 
-    // Aquí puedes conectar con tu backend o usar EmailJS
-    // Por ahora simulamos el envío
     try {
-      // Simular envío
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       console.log('Formulario enviado:', formData);
       setStatus({ submitting: false, submitted: true, error: null });
       setFormData({ name: '', email: '', message: '' });
       
-      // Resetear el mensaje de éxito después de 5 segundos
       setTimeout(() => {
         setStatus(prev => ({ ...prev, submitted: false }));
       }, 5000);
@@ -87,12 +83,12 @@ const Contact = () => {
           <div className="social-contact">
             <h3>Redes Sociales</h3>
             <div className="social-icons">
-              <a href="https://github.com/tuusuario" target="_blank" rel="noreferrer">
+              <a href="https://github.com/marisa-chaile" target="_blank" rel="noreferrer">
                 <FaGithub />
               </a>
-              {/* <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/marisa-chaile/" target="_blank" rel="noreferrer">
                 <FaLinkedin />
-              </a> */}
+              </a>
               <a href="https://www.instagram.com/marisasolchaile/" target="_blank" rel="noreferrer">
                 <FaInstagram />
               </a>
