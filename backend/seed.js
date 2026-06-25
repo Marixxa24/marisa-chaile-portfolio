@@ -6,22 +6,22 @@ const Skill = require('./models/Skill');
 
 const projects = [
   {
-    title: 'E-commerce Platform',
-    description: 'Plataforma de comercio electrónico completa con carrito de compras y pasarela de pago',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-    githubUrl: 'https://github.com/tuusuario/ecommerce',
-    liveUrl: 'https://ecommerce-demo.com',
+    title: 'Fut Rioja',
+    description: 'Plataforma SaaS para gestión de canchas de fútbol en La Rioja — reservas, torneos, equipos y generación automática de fixtures.',
+    image: 'https://via.placeholder.com/600x400',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+    githubUrl: 'https://github.com/Marixxa24/fut-rioja',
+    liveUrl: 'https://fut-rioja.vercel.app/',
     category: 'fullstack',
     featured: true
   },
   {
-    title: 'Task Manager App',
-    description: 'Aplicación para gestionar tareas con autenticación y tiempo real',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40',
-    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-    githubUrl: 'https://github.com/tuusuario/taskmanager',
-    liveUrl: 'https://tasks-demo.com',
+    title: 'Portfolio Personal',
+    description: 'Portfolio interactivo full stack con diseño dark/tech, tecnologías flotantes animadas y formulario de contacto.',
+    image: 'https://via.placeholder.com/600x400',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
+    githubUrl: 'https://github.com/Marixxa24/marisa-chaile-portfolio',
+    liveUrl: null,
     category: 'fullstack',
     featured: true
   }

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import '../styles/Projects.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import "../styles/Projects.css";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState('all');
+  const [filter, setFilter] = useState("all");
 
   useEffect(() => {
     fetchProjects();
@@ -14,18 +14,19 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/projects');
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/projects`,
+      );
       setProjects(response.data);
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching projects:', error);
+      console.error("Error fetching projects:", error);
       setLoading(false);
     }
   };
 
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(p => p.category === filter);
+  const filteredProjects =
+    filter === "all" ? projects : projects.filter((p) => p.category === filter);
 
   if (loading) {
     return <div className="loading">Cargando proyectos...</div>;
@@ -34,33 +35,33 @@ const Projects = () => {
   return (
     <div className="projects-page">
       <h1 className="page-title">Mis Proyectos</h1>
-      
+
       <div className="filter-buttons">
-        <button 
-          className={filter === 'all' ? 'active' : ''} 
-          onClick={() => setFilter('all')}
+        <button
+          className={filter === "all" ? "active" : ""}
+          onClick={() => setFilter("all")}
         >
           Todos
         </button>
-        <button 
-          className={filter === 'frontend' ? 'active' : ''} 
-          onClick={() => setFilter('frontend')}
+        <button
+          className={filter === "frontend" ? "active" : ""}
+          onClick={() => setFilter("frontend")}
         >
           Frontend
         </button>
-        <button 
-          className={filter === 'fullstack' ? 'active' : ''} 
-          onClick={() => setFilter('fullstack')}
+        <button
+          className={filter === "fullstack" ? "active" : ""}
+          onClick={() => setFilter("fullstack")}
         >
           Full Stack
         </button>
       </div>
 
       <div className="projects-grid">
-        {filteredProjects.map(project => (
+        {filteredProjects.map((project) => (
           <div key={project._id} className="project-card">
-            <img 
-              src={project.image} 
+            <img
+              src={project.image}
               alt={project.title}
               className="project-image"
             />
@@ -68,8 +69,10 @@ const Projects = () => {
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <div className="tech-stack">
-                {project.technologies.map(tech => (
-                  <span key={tech} className="tech-tag">{tech}</span>
+                {project.technologies.map((tech) => (
+                  <span key={tech} className="tech-tag">
+                    {tech}
+                  </span>
                 ))}
               </div>
               <div className="project-links">

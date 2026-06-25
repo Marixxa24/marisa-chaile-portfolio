@@ -69,6 +69,15 @@ app.get('/api/skills', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+app.post('/api/projects', async (req, res) => {
+    try {
+        const project = new Project(req.body);
+        await project.save();
+        res.status(201).json(project);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

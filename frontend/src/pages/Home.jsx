@@ -39,16 +39,16 @@ const FLOATING_TECHS = [
 
 // Habilidades por categoría
 const SKILLS_CATEGORIES = {
-frontend: [
-  "React",
-  "Next.js", 
-  "JavaScript (ES6+)",
-  "Tailwind CSS",
-  "Material UI (MUI)",
-  "Bootstrap",
-  "HTML5 / CSS3",
-  "Vite",
-],
+  frontend: [
+    "React",
+    "Next.js",
+    "JavaScript (ES6+)",
+    "Tailwind CSS",
+    "Material UI (MUI)",
+    "Bootstrap",
+    "HTML5 / CSS3",
+    "Vite",
+  ],
   backend: [
     "Node.js",
     "Express",
@@ -57,12 +57,7 @@ frontend: [
     "REST APIs",
     "JWT",
   ],
-database: [
-  "MongoDB",
-  "PostgreSQL",
-  "MySQL",
-  "Mongoose",
-],
+  database: ["MongoDB", "PostgreSQL", "MySQL", "Mongoose"],
   tools: [
     "Git / GitHub",
     "Vercel / Railway",
@@ -127,24 +122,26 @@ const CERTIFICATIONS = [
 const PROJECTS = [
   {
     name: "Fut Rioja",
-    description: "Sistema B2B / SAAS + E-commerce para gestión comercial",
-    tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
+    url: "https://fut-rioja.vercel.app/",
+    description: "Plataforma SaaS para gestión de canchas de fútbol en La Rioja — reservas, torneos, equipos y generación automática de fixtures.",
+    tech: ["React", "Node.js", "Express", "MongoDB", "JWT"],
     features: [
-      "Autenticación JWT",
-      "Panel de administración",
-      "Carrito de compras",
-      "Pasarela de pagos",
+      "Autenticación JWT con roles",
+      "Reservas de canchas en tiempo real",
+      "Generación automática de fixtures",
+      "Panel de administración para propietarios",
     ],
   },
   {
     name: "Portfolio Personal",
-    description: "Portfolio interactivo con stack MERN y diseño femenino/tech",
-    tech: ["React", "Node.js", "Express", "MongoDB", "Framer Motion"],
+    url: null,
+    description: "Portfolio interactivo full stack con diseño dark/tech, tecnologías flotantes animadas y formulario de contacto.",
+    tech: ["React", "Node.js", "Express", "MongoDB"],
     features: [
+      "Tecnologías flotantes animadas",
+      "Diseño responsive dark/tech",
+      "Formulario de contacto funcional",
       "Cursor personalizado",
-      "Animaciones",
-      "Tecnologías flotantes",
-      "Formulario de contacto",
     ],
   },
 ];
@@ -264,16 +261,16 @@ const Home = () => {
               Información, actualmente capacitándome en Testing QA y tecnologías
               multiplataforma.
               <span className="pf-asasas">
-                <a 
-                  href="#about" 
+                <a
+                  href="#about"
                   onClick={(e) => {
                     e.preventDefault();
-                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-                  }} 
+                    document
+                      .getElementById("about")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
                   className="pf-sub"
-                >
-                  
-                </a>{" "}
+                ></a>{" "}
               </span>
             </p>
 
@@ -333,17 +330,27 @@ const Home = () => {
           <div className="pf-hero-right">
             <div className="pf-character-container">
               {/* Floating tech icons */}
-              <div className="pf-floating-icon fi-react" title="React"><FaReact /></div>
-              <div className="pf-floating-icon fi-node" title="Node.js"><FaNodeJs /></div>
-              <div className="pf-floating-icon fi-git" title="Git"><FaGitAlt /></div>
-              <div className="pf-floating-icon fi-figma" title="Figma"><FaFigma /></div>
-              <div className="pf-floating-icon fi-python" title="Python"><FaPython /></div>
-              
+              <div className="pf-floating-icon fi-react" title="React">
+                <FaReact />
+              </div>
+              <div className="pf-floating-icon fi-node" title="Node.js">
+                <FaNodeJs />
+              </div>
+              <div className="pf-floating-icon fi-git" title="Git">
+                <FaGitAlt />
+              </div>
+              <div className="pf-floating-icon fi-figma" title="Figma">
+                <FaFigma />
+              </div>
+              <div className="pf-floating-icon fi-python" title="Python">
+                <FaPython />
+              </div>
+
               <div className="pf-character-image-wrapper">
-                <img 
-                  src="/assets/girl_standing.png " 
-                  alt="Marisa Chaile - 3D Avatar" 
-                  className="pf-character-img" 
+                <img
+                  src="/assets/girl_standing.png "
+                  alt="Marisa Chaile - 3D Avatar"
+                  className="pf-character-img"
                 />
               </div>
             </div>
@@ -373,14 +380,14 @@ const Home = () => {
             <div className="about-grid">
               <div className="about-left">
                 <div className="about-character-wrapper">
-                  <img 
-                    src="/assets/girl_sitting.png" 
-                    alt="Marisa Chaile - 3D Sitting Avatar" 
-                    className="about-char-img" 
+                  <img
+                    src="/assets/girl_sitting.png"
+                    alt="Marisa Chaile - 3D Sitting Avatar"
+                    className="about-char-img"
                   />
                 </div>
               </div>
-              
+
               <div className="about-right">
                 <div className="about-card">
                   <h2 className="about-title">Sobre mí</h2>
@@ -388,19 +395,40 @@ const Home = () => {
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>Estudiante Avanzada de Sistemas:</strong> Cursando Ingeniería en Sistemas de Información en la Universidad Nacional de La Rioja, apasionada por la tecnología, el código y la computación.
+                        <strong>Estudiante Avanzada — UNLaR:</strong> Cursando
+                        Ingeniería en Sistemas de Información y Licenciatura en
+                        Sistemas de Información, complementando mi formación con
+                        capacitación en QA Testing y tecnologías de desarrollo
+                        web y multiplataforma.
                       </div>
                     </li>
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>Enfoque Full Stack & Calidad:</strong> Comprometida con la creación de experiencias web completas y robustas, desde el backend hasta el frontend, asegurando siempre altos estándares con QA Testing.
+                        <strong>Full Stack MERN:</strong> Construyo aplicaciones
+                        completas con MongoDB, Express, React y Node.js — desde
+                        la arquitectura del backend hasta la interfaz,
+                        integrando autenticación, APIs REST y servicios en la
+                        nube.
                       </div>
                     </li>
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>Aprendizaje Continuo:</strong> Explorando nuevas fronteras tecnológicas como la integración de Inteligencia Artificial Generativa y desarrollo móvil para ofrecer soluciones de vanguardia.
+                        <strong>Investigación & Gestión:</strong>Integrante de
+                        un proyecto de investigación sobre IA Generativa
+                        aplicada a la educación y representante estudiantil en
+                        el Consejo Consultivo de la carrera.
+                      </div>
+                    </li>
+                    <li>
+                      <span className="about-bullet" />
+                      <div>
+                        <strong>Objetivo profesional:</strong>incorporarme como
+                        desarrolladora trainee o junior en equipos de desarrollo
+                        Frontend, Full Stack o QA, aportando aprendizaje
+                        continuo, compromiso y capacidad de resolución de
+                        problemas.
                       </div>
                     </li>
                   </ul>
@@ -490,10 +518,11 @@ const Home = () => {
 
             <div className="education-note">
               <p>
-                🎓 <strong>Educación:</strong> Ingeniería en Sistemas de
-                Información · Lic. en Sistemas de Información (UNLaR - en curso)
+                🎓 <strong>Educación:</strong> Licenciatura en Sistemas de
+                Información (avanzada) · Ingeniería en Sistemas (en curso) —
+                UNLaR
                 <br />
-                📚 Cursando adicionalmente: Testing QA
+                📚 Especialización en curso: Testing QA
               </p>
             </div>
           </div>
@@ -527,9 +556,21 @@ const Home = () => {
                       <li key={i}>✓ {f}</li>
                     ))}
                   </ul>
-                  <Link to="/projects" className="project-link">
-                    Ver más →
-                  </Link>
+                  <div className="project-links">
+                    {project.url && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="project-link"
+                      >
+                        Ver proyecto →
+                      </a>
+                    )}
+                    <Link to="/projects" className="project-link-secondary">
+                      Ver más →
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
