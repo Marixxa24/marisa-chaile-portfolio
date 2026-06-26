@@ -58,12 +58,7 @@ const SKILLS_CATEGORIES = {
     "REST APIs",
     "JWT",
   ],
-  database: [
-    "MongoDB",
-    "PostgreSQL",
-    "MySQL",
-    "Mongoose",
-  ],
+  database: ["MongoDB", "PostgreSQL", "MySQL", "Mongoose"],
   tools: [
     "Git / GitHub",
     "Vercel / Railway",
@@ -115,66 +110,107 @@ const EXPERIENCES = [
 // Certificaciones
 const CERTIFICATIONS = [
   {
-    name: 'Proyecto PILAR TECNO 6ta Edición - MERN STACK',
-    image: 'https://drive.google.com/thumbnail?id=1LWHny5CtG4AyZeyDoX61XXt97oWvGqVX&sz=w400',
-    link: 'https://drive.google.com/file/d/1LWHny5CtG4AyZeyDoX61XXt97oWvGqVX/view?usp=sharing'
+    name: "Proyecto PILAR TECNO 6ta Edición - MERN STACK",
+    image:
+      "https://drive.google.com/thumbnail?id=1LWHny5CtG4AyZeyDoX61XXt97oWvGqVX&sz=w400",
+    link: "https://drive.google.com/file/d/1LWHny5CtG4AyZeyDoX61XXt97oWvGqVX/view?usp=sharing",
   },
   {
-    name: 'Argentina Programa - Introducción a la programación',
-    image: 'https://drive.google.com/thumbnail?id=2DEF456GHI789&sz=w400',
-    link: 'https://drive.google.com/file/d/2DEF456GHI789/view'
+    name: "Polo Tecnologico - Introducción a la programación",
+    image:
+      "https://drive.google.com/thumbnail?id=1I44W7m_3pG4W-RhXaUFJvV5M_II3IpCK&sz=w400",
+    link: "https://drive.google.com/file/d/1I44W7m_3pG4W-RhXaUFJvV5M_II3IpCK/view?usp=sharing",
   },
   {
-    name: 'Desarrollo web con React js - UTN',
-    image: 'https://drive.google.com/thumbnail?id=1eQ0zmqmLSy4IQUFTnjrVXqYherjCY591&sz=w400',
-    link: 'https://drive.google.com/file/d/1eQ0zmqmLSy4IQUFTnjrVXqYherjCY591/view?usp=sharing'
+    name: "UTN - Desarrollo web con React js",
+    image:
+      "https://drive.google.com/thumbnail?id=1eQ0zmqmLSy4IQUFTnjrVXqYherjCY591&sz=w400",
+    link: "https://drive.google.com/file/d/1eQ0zmqmLSy4IQUFTnjrVXqYherjCY591/view?usp=sharing",
   },
   {
-    name: 'Mujeres Programadoras - Núcleo del conocimiento',
-    image: 'https://drive.google.com/thumbnail?id=4JKL012MNO345&sz=w400',
-    link: 'https://drive.google.com/file/d/4JKL012MNO345/view'
+    name: "Núcleo del conocimiento - Mujeres Programadoras",
+    image:
+      "https://drive.google.com/thumbnail?id=1GsS83DyS8Pi36cLvdFkjBzMZpF1z7Dug&sz=w400",
+    link: "https://drive.google.com/file/d/17gzN5l_NnmnhlsODYXcyDG5Juubi5iRS/view?usp=sharing",
   },
   {
-    name: 'Git - GitHub_TodoCode',
-    image: 'https://drive.google.com/thumbnail?id=1VRrhEFSTqzcnZd0mckO3BeWx3By0SuLM&sz=w400',
-    link: 'https://drive.google.com/file/d/1VRrhEFSTqzcnZd0mckO3BeWx3By0SuLM/view?usp=sharing'
-  },
- {
-  name: 'PYTHON - FRONT END 2024',
-  image: 'https://drive.google.com/uc?export=view&id=1PykHXJ5TXL60lzI_aG9jnncsJ9mqWGBv',
-  link: 'https://drive.google.com/file/d/1PykHXJ5TXL60lzI_aG9jnncsJ9mqWGBv/view?usp=sharing'
-},
-  {
-    name: 'WordPress - Canvas',
-    image: 'https://drive.google.com/thumbnail?id=7STU901VWX234&sz=w400',
-    link: 'https://drive.google.com/file/d/7STU901VWX234/view'
+    name: "TodoCode - Git - GitHub",
+    image:
+      "https://drive.google.com/thumbnail?id=1VRrhEFSTqzcnZd0mckO3BeWx3By0SuLM&sz=w400",
+    link: "https://drive.google.com/file/d/1VRrhEFSTqzcnZd0mckO3BeWx3By0SuLM/view?usp=sharing",
   },
   {
-    name: 'Testing QA (en curso)',
-    image: 'https://drive.google.com/thumbnail?id=8VWX234YZA567&sz=w400',
-    link: 'https://drive.google.com/file/d/8VWX234YZA567/view'
-  }
+    name: "TodoCode - HTML5 y CSS3",
+    image:
+      "https://drive.google.com/thumbnail?id=1V7kHnx4xijEqLRDoNDbme8KcwSHrLwMg&sz=w400",
+    link: "https://drive.google.com/file/d/1V7kHnx4xijEqLRDoNDbme8KcwSHrLwMg/view?usp=sharing",
+  },
+  {
+    name: "PYTHON - FRONT END 2024",
+    image:
+      "https://drive.google.com/thumbnail?id=14hEDaiY_q3v2Ru3k2uSnv5RJCJFr5E3p&sz=w400",
+    link: "https://drive.google.com/file/d/1PykHXJ5TXL60lzI_aG9jnncsJ9mqWGBv/view?usp=sharing",
+  },
+  {
+    name: "WordPress - Canvas",
+    image:
+      "https://drive.google.com/thumbnail?id=1O8nt_6wIkXUb8jcBOZum8b22qrYxc3ZX&sz=w400",
+    link: "https://drive.google.com/file/d/1O8nt_6wIkXUb8jcBOZum8b22qrYxc3ZX/view?usp=sharing",
+  },
+  {
+    name: "Centro Universitario de Idiomas - CUI.UBA - Ingles A 1.2 ",
+    image:
+      "https://drive.google.com/thumbnail?id=18D2IEX3e1PJ191y9w4gSwcpC-_tCifcC&sz=w400",
+    link: "https://drive.google.com/file/d/1-ZrVu66l_AYy-LdYES5TK7CFl32g6H05/view?usp=sharing",
+  },
+  {
+    name: "Congreso Argentino de Ciencias de la Computacion - Deep Learning",
+    image:
+      "https://drive.google.com/thumbnail?id=1NoojP2ratOtO8yXitZQeM9FtDIljNAid&sz=w400",
+    link: "https://drive.google.com/file/d/1l8N_55DlDcmIY9mWZO5V_z9AtX6YBPJn/view?usp=sharing",
+  },
+  {
+    name: "Testing QA (en curso)",
+    image: "https://drive.google.com/thumbnail?id=8VWX234YZA567&sz=w400",
+    link: "https://drive.google.com/file/d/8VWX234YZA567/view",
+  },
 ];
 
 // Proyectos destacados
 const PROJECTS = [
   {
     name: "Fut Rioja",
+    badge: "MVP en producción",
     url: "https://fut-rioja.vercel.app/",
-    description: "Plataforma SaaS para gestión de canchas de fútbol en La Rioja — reservas, torneos, equipos y generación automática de fixtures.",
-    tech: ["React", "Node.js", "Express", "MongoDB", "JWT"],
+    description:
+      "La plataforma que conecta a jugadores, dueños de canchas y organizadores en La Rioja. Reservá, competí y gestioná el fútbol amateur desde un solo lugar.",
+    tech: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JWT",
+      "Socket.io",
+      "Tailwind CSS",
+      "Cloudinary",
+      "Leaflet / OpenStreetMap",
+    ],
     features: [
-      "Autenticación JWT con roles",
-      "Reservas de canchas en tiempo real",
-      "Generación automática de fixtures",
-      "Panel de administración para propietarios",
+      "Autenticación JWT con 4 roles (Jugador, Dueño de Cancha, Organizador de Torneos y Administrador)",
+      "Reservas de canchas en tiempo real con notificaciones dinámicas mediante Socket.io",
+      "Generación automática de fixtures, partidos y tablas de posiciones para torneos",
+      "Paneles de control (Dashboards) adaptados y diferenciados según el rol del usuario",
+      "Subida y gestión multimedia (fotos de perfiles/equipos y videos de canchas) con Cloudinary",
+      "Geolocalización e integración interactiva de mapas utilizando Leaflet y OpenStreetMap",
+      "Sistema de invitaciones rápidas para unirse a equipos mediante enlaces compartibles",
     ],
     img: "/assets/homee.jpeg",
   },
   {
     name: "Portfolio Personal",
     url: null,
-    description: "Portfolio interactivo full stack con diseño dark/tech, tecnologías flotantes animadas y formulario de contacto.",
+    description:
+      "Portfolio interactivo full stack con diseño dark/tech, tecnologías flotantes animadas y formulario de contacto.",
     tech: ["React", "Node.js", "Express", "MongoDB"],
     features: [
       "Tecnologías flotantes animadas",
@@ -182,8 +218,41 @@ const PROJECTS = [
       "Formulario de contacto funcional",
       "Cursor personalizado",
     ],
-    img: "/assets/projects/portfolio.png",
+    img: "/assets/portfolio-2.jpeg",
   },
+  {
+  name: "LogistiTrack",
+  badge: "Full Stack · MERN",
+  url: "https://github.com/Marixxa24/LogistiTrack",
+  description:
+    "Aplicación web para gestión de órdenes logísticas conectada a una API REST propia. Permite crear, editar, eliminar y filtrar órdenes en tiempo real con cálculo automático de costos de envío.",
+  tech: ["React", "Node.js", "Express", "MongoDB", "Material UI", "Axios", "Context API"],
+  features: [
+    "CRUD completo de órdenes conectado a API REST real (sin mocks)",
+    "Cálculo automático de costo logístico según provincia y peso en tiempo real",
+    "Filtrado dinámico por estado: Pendiente, En tránsito, Entregado",
+    "Notificaciones visuales de éxito/error en cada acción",
+    "Manejo global de estado con Context API y Custom Hooks",
+    "Actualización automática de listados sin recargar la página",
+  ],
+  img: "https://github.com/user-attachments/assets/c0fb545a-78a9-41d7-847c-db00d9e71997",
+},
+{
+  name: "Smart Agenda AI",
+  badge: "MERN + Google Gemini",
+  url: "https://github.com/Marixxa24/smart-agenda-ai", // cambiá por el link real
+  description:
+    "Agenda inteligente que clasifica tus tareas automáticamente con IA. Solo escribís la tarea y Gemini analiza el texto y la categoriza en estudio, trabajo, salud o personal — sin que tengas que elegir nada.",
+  tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Google Gemini AI", "Axios"],
+  features: [
+    "Clasificación automática de tareas con Google Gemini 3 Flash Preview",
+    "El backend procesa, clasifica y persiste la tarea estructurada en MongoDB",
+    "Interfaz SPA simple: solo escribís y la IA hace el resto",
+    "Servicio de IA encapsulado en el backend (el frontend no toca la API key)",
+    "En desarrollo: autenticación con Google OAuth 2.0 para agenda privada por usuario",
+  ],
+  img: "https://github.com/user-attachments/assets/57170496-a355-4b11-acf8-0276b21a4f03",
+},
 ];
 
 // ── Componente CertCard con manejo de error de imagen ──
@@ -334,7 +403,9 @@ const Home = () => {
                 href="#about"
                 onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  document
+                    .getElementById("about")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
                 className="pf-link-about"
               >
@@ -392,11 +463,21 @@ const Home = () => {
           <div className="pf-hero-right">
             <div className="pf-character-container">
               {/* Floating tech icons */}
-              <div className="pf-floating-icon fi-react" title="React"><FaReact /></div>
-              <div className="pf-floating-icon fi-node" title="Node.js"><FaNodeJs /></div>
-              <div className="pf-floating-icon fi-git" title="Git"><FaGitAlt /></div>
-              <div className="pf-floating-icon fi-figma" title="Figma"><FaFigma /></div>
-              <div className="pf-floating-icon fi-python" title="Python"><FaPython /></div>
+              <div className="pf-floating-icon fi-react" title="React">
+                <FaReact />
+              </div>
+              <div className="pf-floating-icon fi-node" title="Node.js">
+                <FaNodeJs />
+              </div>
+              <div className="pf-floating-icon fi-git" title="Git">
+                <FaGitAlt />
+              </div>
+              <div className="pf-floating-icon fi-figma" title="Figma">
+                <FaFigma />
+              </div>
+              <div className="pf-floating-icon fi-python" title="Python">
+                <FaPython />
+              </div>
 
               <div className="pf-character-image-wrapper">
                 <img
@@ -447,31 +528,45 @@ const Home = () => {
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>🎓 Estudiante avanzada:</strong> cursando Licenciatura en Sistemas de Información (UNLaR), con Ingeniería en Sistemas en paralelo. Apasionada por la tecnología, el código y la computación.
+                        <strong>🎓 Estudiante avanzada:</strong> cursando
+                        Licenciatura en Sistemas de Información (UNLaR), con
+                        Ingeniería en Sistemas en paralelo. Apasionada por la
+                        tecnología, el código y la computación.
                       </div>
                     </li>
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>🔬 Investigación & Gestión:</strong> participo en un proyecto de IA Generativa aplicada a educación en la UNLaR y formo parte del Consejo Consultivo de mi carrera.
+                        <strong>🔬 Investigación & Gestión:</strong> participo
+                        en un proyecto de IA Generativa aplicada a educación en
+                        la UNLaR y formo parte del Consejo Consultivo de mi
+                        carrera.
                       </div>
                     </li>
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>⚙️ Enfoque Full Stack & Calidad:</strong> comprometida con experiencias web robustas, desde el backend hasta el frontend, siempre con altos estándares de QA Testing.
+                        <strong>⚙️ Enfoque Full Stack & Calidad:</strong>{" "}
+                        comprometida con experiencias web robustas, desde el
+                        backend hasta el frontend, siempre con altos estándares
+                        de QA Testing.
                       </div>
                     </li>
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>📚 Aprendizaje Continuo:</strong> explorando IA Generativa y desarrollo móvil para ofrecer soluciones de vanguardia.
+                        <strong>📚 Aprendizaje Continuo:</strong> explorando IA
+                        Generativa y desarrollo móvil para ofrecer soluciones de
+                        vanguardia.
                       </div>
                     </li>
                     <li>
                       <span className="about-bullet" />
                       <div>
-                        <strong>🎯 Busco rol trainee o junior</strong> en desarrollo full stack, frontend o QA Testing — área en la que me especializo actualmente. Abierta a freelance o relación de dependencia.
+                        <strong>🎯 Busco rol trainee o junior</strong> en
+                        desarrollo full stack, frontend o QA Testing — área en
+                        la que me especializo actualmente. Abierta a freelance o
+                        relación de dependencia.
                       </div>
                     </li>
                   </ul>
@@ -587,7 +682,11 @@ const Home = () => {
                 <div key={idx} className="project-card">
                   {project.img && (
                     <div className="project-image">
-                      <img src={project.img} alt={project.name} loading="lazy" />
+                      <img
+                        src={project.img}
+                        alt={project.name}
+                        loading="lazy"
+                      />
                     </div>
                   )}
                   <h3>{project.name}</h3>
