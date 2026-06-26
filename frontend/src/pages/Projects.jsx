@@ -14,8 +14,7 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/projects`);
-      console.log('respuesta:', response.data);
+const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/projects`);      console.log('respuesta:', response.data);
       const data = Array.isArray(response.data) ? response.data : [];
       setProjects(data);
     } catch (error) {
