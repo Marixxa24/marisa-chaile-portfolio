@@ -51,24 +51,8 @@ app.get('/', (req, res) => {
         mongodb: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
     });
 });
-
-app.get('/api/projects', async (req, res) => {
-    try {
-        const projects = await Project.find();
-        res.json(projects);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-});
-
-app.get('/api/skills', async (req, res) => {
-    try {
-        const skills = await Skill.find();
-        res.json(skills);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-});
+app.use('/api/projects', projectsRouter);
+app.use('/api/skills', skillsRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

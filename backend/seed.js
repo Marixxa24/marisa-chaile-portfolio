@@ -1,57 +1,61 @@
 const mongoose = require('mongoose');
+const Project = require('./models/Project');
 require('dotenv').config();
 
-const Project = require('./models/Project');
-const Skill = require('./models/Skill');
+console.log('MONGO_URI:', process.env.MONGODB_URI); // para verificar
 
 const projects = [
   {
-    title: 'Fut Rioja',
-    description: 'Plataforma SaaS para gestión de canchas de fútbol en La Rioja — reservas, torneos, equipos y generación automática de fixtures.',
-    image: 'https://via.placeholder.com/600x400',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT'],
-    githubUrl: 'https://github.com/Marixxa24/fut-rioja',
-    liveUrl: 'https://fut-rioja.vercel.app/',
-    category: 'fullstack',
-    featured: true
+    title: "Fut Rioja",
+    description: "La plataforma que conecta a jugadores, dueños de canchas y organizadores en La Rioja. Reservá, competí y gestioná el fútbol amateur desde un solo lugar.",
+    image: "/assets/homee.jpeg",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "JWT", "Socket.io", "Tailwind CSS", "Cloudinary"],
+    githubUrl: "https://github.com/Marixxa24/Fut-Rioja",
+    liveUrl: "https://fut-rioja.vercel.app/",
+    category: "fullstack",
+    featured: true,
   },
   {
-    title: 'Portfolio Personal',
-    description: 'Portfolio interactivo full stack con diseño dark/tech, tecnologías flotantes animadas y formulario de contacto.',
-    image: 'https://via.placeholder.com/600x400',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
-    githubUrl: 'https://github.com/Marixxa24/marisa-chaile-portfolio',
+    title: "LogistiTrack",
+    description: "Aplicación web para gestión de órdenes logísticas conectada a una API REST propia. Permite crear, editar, eliminar y filtrar órdenes en tiempo real con cálculo automático de costos de envío.",
+    image: "https://github.com/user-attachments/assets/c0fb545a-78a9-41d7-847c-db00d9e71997",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Material UI", "Axios"],
+    githubUrl: "https://github.com/Marixxa24/LogistiTrack",
     liveUrl: null,
-    category: 'fullstack',
-    featured: true
-  }
+    category: "fullstack",
+    featured: false,
+  },
+  {
+    title: "Smart Agenda AI",
+    description: "Agenda inteligente que clasifica tus tareas automáticamente con IA. Solo escribís la tarea y Gemini analiza el texto y la categoriza en estudio, trabajo, salud o personal.",
+    image: "https://github.com/user-attachments/assets/57170496-a355-4b11-acf8-0276b21a4f03",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Google Gemini AI"],
+    githubUrl: "https://github.com/Marixxa24/smart-agenda-ai",
+    liveUrl: null,
+    category: "fullstack",
+    featured: false,
+  },
+  {
+    title: "Portfolio Personal",
+    description: "Portfolio desarrollado con MERN Stack, diseño dark/tech con estética femenina, animaciones en canvas y secciones de proyectos, experiencia y certificaciones.",
+    image: "/assets/portfolio-2.jpeg",
+    technologies: ["React", "Node.js", "Express", "MongoDB"],
+    githubUrl: "https://github.com/Marixxa24/marisa-chaile-portfolio",
+    liveUrl: null,
+    category: "fullstack",
+    featured: false,
+  },
 ];
 
-const skills = [
-  { name: 'React', level: 90, category: 'frontend', icon: '⚛️' },
-  { name: 'Node.js', level: 85, category: 'backend', icon: '🚀' },
-  { name: 'MongoDB', level: 80, category: 'database', icon: '🍃' },
-  { name: 'Express', level: 85, category: 'backend', icon: '📦' },
-  { name: 'JavaScript', level: 90, category: 'frontend', icon: '📜' },
-  { name: 'HTML/CSS', level: 95, category: 'frontend', icon: '🎨' }
-];
-
-const seedDatabase = async () => {
-  try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    
+mongoose.connect(process.env.MONGODB_URI)
+  .then(async () => {
+    console.log('Conectado a MongoDB');
     await Project.deleteMany();
-    await Skill.deleteMany();
-    
     await Project.insertMany(projects);
-    await Skill.insertMany(skills);
-    
-    console.log('✅ Datos insertados correctamente');
-    process.exit(0);
-  } catch (error) {
-    console.error('❌ Error:', error);
+    console.log('Proyectos insertados correctamente');
+    process.exit();
+  })
+  .catch(err => {
+    console.error(err);
     process.exit(1);
-  }
-};
-
-seedDatabase();
+  });
