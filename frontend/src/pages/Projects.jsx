@@ -14,11 +14,14 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-     const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/projects`);
-      setProjects(response.data);
-      setLoading(false);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/projects`);
+      console.log('respuesta:', response.data);
+      const data = Array.isArray(response.data) ? response.data : [];
+      setProjects(data);
     } catch (error) {
       console.error("Error fetching projects:", error);
+      setProjects([]);
+    } finally {
       setLoading(false);
     }
   };
@@ -56,36 +59,40 @@ const Projects = () => {
       </div>
 
       <div className="projects-grid">
-        {filteredProjects.map((project) => (
-          <div key={project._id} className="project-card">
-            <img 
-              src={project.image} 
-              alt={project.title}
-              className="project-image"
-            />
-            <div className="project-content">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <div className="tech-stack">
-                {project.technologies.map(tech => (
-                  <span key={tech} className="tech-tag">{tech}</span>
-                ))}
-              </div>
-              <div className="project-links">
-                {project.githubUrl && (
-                  <a href={project.githubUrl} target="_blank" rel="noreferrer">
-                    <FaGithub /> Código
-                  </a>
-                )}
-                {project.liveUrl && (
-                  <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                    <FaExternalLinkAlt /> Demo
-                  </a>
-                )}
+        {filteredProjects.length === 0 ? (
+          <p className="no-projects">No hay proyectos para mostrar.</p>
+        ) : (
+          filteredProjects.map((project) => (
+            <div key={project._id} className="project-card">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="project-image"
+              />
+              <div className="project-content">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="tech-stack">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="tech-tag">{tech}</span>
+                  ))}
+                </div>
+                <div className="project-links">
+                  {project.githubUrl && (
+                    <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                      <FaGithub /> Código
+                    </a>
+                  )}
+                  {project.liveUrl && (
+                    <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                      <FaExternalLinkAlt /> Demo
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );
