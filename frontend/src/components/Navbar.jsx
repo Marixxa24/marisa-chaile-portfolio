@@ -13,24 +13,46 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Detect active section on home page scroll
-      if (location.pathname === '/') {
-        const aboutEl = document.getElementById('about');
-        const scrollPos = window.scrollY + 150;
+      if (location.pathname !== '/') return;
 
-        if (aboutEl && scrollPos >= aboutEl.offsetTop) {
-          setActiveSection('about');
-        } else {
-          setActiveSection('hero');
+      const sectionIds = ['hero', 'about', 'skills'];
+      const scrollPos = window.scrollY + 160;
+      let currentSection = 'hero';
+
+      sectionIds.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section && scrollPos >= section.offsetTop) {
+          currentSection = id;
         }
-      }
+      });
+
+      setActiveSection(currentSection);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location]);
 
-  // Cerrar menú al cambiar de página o redimensionar
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
+  // Cerrar menú al cambiar de página
   useEffect(() => {
     setMenuOpen(false);
   }, [location]);
@@ -44,16 +66,15 @@ const Navbar = () => {
   ];
 
   const handleNavClick = (e, item) => {
-    if (item.hash) {
-      if (location.pathname === '/') {
-        e.preventDefault();
-        const element = document.getElementById(item.id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        setMenuOpen(false);
+    if (item.hash && location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById(item.id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
+
+    setMenuOpen(false);
   };
 
   const isLinkActive = (item) => {
@@ -98,14 +119,14 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           className={`menu-toggle ${menuOpen ? 'open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Menú"
         >
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
         {/* Mobile Menu Overlay */}
-        {/* <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
+        <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
           <div className="mobile-menu-container">
             <div className="mobile-menu-header">
               <span className="mobile-menu-title">Navegación</span>
@@ -121,10 +142,7 @@ const Navbar = () => {
                     to={item.path}
                     state={item.hash ? { scrollTo: item.hash } : null}
                     className={`mobile-nav-link ${isLinkActive(item) ? 'active' : ''}`}
-                    onClick={(e) => {
-                      handleNavClick(e, item);
-                      if (!item.hash) setMenuOpen(false);
-                    }}
+                    onClick={(e) => handleNavClick(e, item)}
                   >
                     <span className="mobile-nav-icon">{item.icon}</span>
                     <span className="mobile-nav-text">{item.name}</span>
@@ -135,15 +153,15 @@ const Navbar = () => {
             </ul>
             <div className="mobile-menu-footer">
               <div className="mobile-contact">
-                <a href="mailto:marisasolchaille@gmail.com">marisasolchaille@gmail.com</a>
+                <a href="mailto:marisasolchaile@gmail.com">marisasolchaile@gmail.com</a>
               </div>
               <div className="mobile-social">
-                <a href="https://github.com/marisa-chaile" target="_blank" rel="noreferrer">GH</a>
+                <a href="https://github.com/Marixxa24" target="_blank" rel="noreferrer">GH</a>
                 <a href="https://linkedin.com/in/marisa-chaile" target="_blank" rel="noreferrer">IN</a>
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </nav>
   );

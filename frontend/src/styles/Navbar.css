@@ -26,6 +26,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
 }
 
 /* ============================================
@@ -36,6 +38,7 @@
   display: flex;
   align-items: center;
   z-index: 1001;
+  flex-shrink: 0;
 }
 
 .logo-wrapper {
@@ -58,10 +61,11 @@
 
 .logo-text {
   font-family: 'Space Mono', monospace;
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 3vw, 1rem);
   font-weight: 500;
   color: #f8fafc;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .logo-accent {
@@ -81,6 +85,7 @@
 .nav-menu-desktop {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -103,6 +108,7 @@
   border-radius: 40px;
   transition: all 0.3s ease;
   position: relative;
+  min-width: 0;
 }
 
 .nav-icon {
@@ -144,16 +150,19 @@
   display: none;
   background: none;
   border: none;
-  cursor: none;
-  z-index: 1001;
-  padding: 0.5rem;
   color: #f8fafc;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  padding: 0.4rem;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .menu-toggle:hover {
   color: #ffd700;
+}
+
+.mobile-menu {
+  display: none;
 }
 
 /* ============================================
@@ -179,6 +188,7 @@
   }
 
   .mobile-menu {
+    display: block;
     position: fixed;
     top: 0;
     right: -100%;
@@ -187,10 +197,11 @@
     height: 100vh;
     background: rgba(15, 7, 31, 0.98);
     backdrop-filter: blur(20px);
-    z-index: 1000;
+    z-index: 1002;
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
     border-left: 1px solid rgba(255, 215, 0, 0.2);
+    overflow-y: auto;
   }
 
   .mobile-menu.active {
@@ -333,11 +344,66 @@
 }
 
 /* ============================================
+   PANTALLAS MUY CHICAS (< 380px)
+============================================ */
+@media (max-width: 380px) {
+  .navbar {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .navbar-scrolled {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .navbar-container {
+    padding: 0 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .logo-icon {
+    font-size: 1.15rem;
+  }
+
+  .mobile-menu {
+    max-width: 100%;
+  }
+
+  .mobile-menu-container {
+    padding: 5rem 1.2rem 1.5rem;
+  }
+
+  .mobile-nav-link {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   LAPTOPS CHICAS (1025px - 1200px)
+============================================ */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .nav-menu-desktop {
+    gap: 0.15rem;
+  }
+
+  .nav-link {
+    padding: 0.55rem 0.9rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
    TABLET (entre 769px y 1024px)
 ============================================ */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .navbar-container {
+    justify-content: space-between;
+  }
+
   .nav-menu-desktop {
     gap: 0.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .nav-link {
