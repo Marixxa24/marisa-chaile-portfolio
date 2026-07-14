@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
+
+
+const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -27,17 +33,28 @@ const Contact = () => {
     setStatus({ submitting: true, submitted: false, error: null });
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      console.log('Formulario enviado:', formData);
+      // ✅ Enviar con EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
       setStatus({ submitting: false, submitted: true, error: null });
       setFormData({ name: '', email: '', message: '' });
-      
+
       setTimeout(() => {
         setStatus(prev => ({ ...prev, submitted: false }));
       }, 5000);
+
     } catch (error) {
-      setStatus({ submitting: false, submitted: false, error: 'Error al enviar el mensaje' });
+      console.error('Error al enviar:', error);
+      setStatus({ submitting: false, submitted: false, error: 'Error al enviar el mensaje. Intenta de nuevo.' });
     }
   };
 
