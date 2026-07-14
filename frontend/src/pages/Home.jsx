@@ -420,7 +420,7 @@ const Home = () => {
               <Link to="/contact" className="pf-btn-outline">
                 Contactarme
               </Link>
-              <a href="/cv-marisa-chaile.pdf" download className="pf-btn-pdf">
+              <a href="https://drive.google.com/file/d/1E_qaztdh7bmwQo6siWDqtgBA8v1-lnfl/view?usp=sharing" download className="pf-btn-pdf">
                 <FaDownload /> Descargar CV
               </a>
             </div>
