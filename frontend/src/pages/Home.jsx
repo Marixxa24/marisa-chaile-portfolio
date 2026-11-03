@@ -52,7 +52,6 @@ import {
   SiVitest,
   SiGithub,
   SiVercel,
-  SiRailway,
   SiDocker,
   SiCloudinary,
   SiPostman,
