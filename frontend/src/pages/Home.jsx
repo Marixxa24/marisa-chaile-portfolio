@@ -13,7 +13,55 @@ import {
   FaGitAlt,
   FaFigma,
   FaPython,
+  FaAws,
+  FaProjectDiagram,
+  FaSyncAlt,
+  FaLayerGroup,
+  FaExchangeAlt,
+  FaUserShield,
+  FaRobot,
+  FaCheckCircle,
 } from "react-icons/fa";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiJavascript,
+  SiTailwindcss,
+  SiMui,
+  SiBootstrap,
+  SiHtml5,
+  SiVite,
+  SiTypescript,
+  SiShadcnui,
+  SiLeaflet,
+  SiNodedotjs,
+  SiExpress,
+  SiSpringboot,
+  SiPython,
+  SiJsonwebtokens,
+  SiTrpc,
+  SiSocketdotio,
+  SiZod,
+  SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiMongoose,
+  SiDrizzle,
+  SiSelenium,
+  SiPytest,
+  SiVitest,
+  SiGithub,
+  SiVercel,
+  SiRailway,
+  SiDocker,
+  SiCloudinary,
+  SiPostman,
+  SiAxios,
+  SiWordpress,
+  SiFigma,
+  SiOpenai,
+  SiGooglegemini,
+} from "react-icons/si";
 import "../styles/Home.css";
 
 // Tecnologías flotantes en el fondo
@@ -36,6 +84,11 @@ const FLOATING_TECHS = [
   "WordPress",
   "Postman",
   "Scrum",
+  "tRPC",
+  "Docker",
+  "Selenium",
+  "Pytest",
+  "Gemini AI",
 ];
 
 // Habilidades por categoría
@@ -49,6 +102,10 @@ const SKILLS_CATEGORIES = {
     "Bootstrap",
     "HTML5 / CSS3",
     "Vite",
+    "TypeScript",
+    "Context API / Hooks",
+    "shadcn/ui (Radix UI)",
+    "Leaflet / mapas",
   ],
   backend: [
     "Node.js",
@@ -57,18 +114,88 @@ const SKILLS_CATEGORIES = {
     "Python",
     "REST APIs",
     "JWT",
+    "tRPC",
+    "Socket.io",
+    "Zod (validaciones)",
+    "Autenticación y roles",
   ],
-  database: ["MongoDB", "PostgreSQL", "MySQL", "Mongoose"],
+  database: ["MongoDB", "PostgreSQL", "MySQL", "Mongoose", "Drizzle ORM"],
+  testing: [
+    "Selenium",
+    "Pytest",
+    "Vitest",
+    "Automatización web",
+    "Testing funcional",
+  ],
   tools: [
     "Git / GitHub",
     "Vercel / Railway",
+    "Docker",
     "Cloudinary",
+    "AWS S3",
+    "Postman",
+    "Axios",
     "WordPress",
     "Figma",
     "UML",
     "OpenAI API",
+    "Google Gemini API",
     "Scrum / Agile",
   ],
+};
+
+// Logos de cada tecnología (con su color de marca)
+const SKILL_ICONS = {
+  // Frontend
+  React: { Icon: SiReact, color: "#38bdf8" },
+  "Next.js": { Icon: SiNextdotjs, color: "var(--icon-black)" },
+  "JavaScript (ES6+)": { Icon: SiJavascript, color: "#d4b106" },
+  "Tailwind CSS": { Icon: SiTailwindcss, color: "#06b6d4" },
+  "Material UI (MUI)": { Icon: SiMui, color: "#007fff" },
+  Bootstrap: { Icon: SiBootstrap, color: "#7952b3" },
+  "HTML5 / CSS3": { Icon: SiHtml5, color: "#e34f26" },
+  Vite: { Icon: SiVite, color: "#646cff" },
+  TypeScript: { Icon: SiTypescript, color: "#3178c6" },
+  "Context API / Hooks": { Icon: FaLayerGroup, color: "#7c5cbf" },
+  "shadcn/ui (Radix UI)": { Icon: SiShadcnui, color: "var(--icon-black)" },
+  "Leaflet / mapas": { Icon: SiLeaflet, color: "#199900" },
+  // Backend
+  "Node.js": { Icon: SiNodedotjs, color: "#5fa04e" },
+  Express: { Icon: SiExpress, color: "var(--icon-black)" },
+  "Java / Spring Boot": { Icon: SiSpringboot, color: "#6db33f" },
+  Python: { Icon: SiPython, color: "#3776ab" },
+  "REST APIs": { Icon: FaExchangeAlt, color: "#e0679a" },
+  JWT: { Icon: SiJsonwebtokens, color: "#d63aff" },
+  tRPC: { Icon: SiTrpc, color: "#398ccb" },
+  "Socket.io": { Icon: SiSocketdotio, color: "var(--icon-black)" },
+  "Zod (validaciones)": { Icon: SiZod, color: "#3068b7" },
+  "Autenticación y roles": { Icon: FaUserShield, color: "#7c5cbf" },
+  // Base de datos
+  MongoDB: { Icon: SiMongodb, color: "#47a248" },
+  PostgreSQL: { Icon: SiPostgresql, color: "#336791" },
+  MySQL: { Icon: SiMysql, color: "#4479a1" },
+  Mongoose: { Icon: SiMongoose, color: "#880000" },
+  "Drizzle ORM": { Icon: SiDrizzle, color: "#8bb800" },
+  // Testing QA
+  Selenium: { Icon: SiSelenium, color: "#43b02a" },
+  Pytest: { Icon: SiPytest, color: "#0a9edc" },
+  Vitest: { Icon: SiVitest, color: "#6e9f18" },
+  "Automatización web": { Icon: FaRobot, color: "#e0679a" },
+  "Testing funcional": { Icon: FaCheckCircle, color: "#4caf82" },
+  // Herramientas
+  "Git / GitHub": { Icon: SiGithub, color: "var(--icon-black)" },
+  "Vercel / Railway": { Icon: SiVercel, color: "var(--icon-black)" },
+  Docker: { Icon: SiDocker, color: "#2496ed" },
+  Cloudinary: { Icon: SiCloudinary, color: "#3448c5" },
+  "AWS S3": { Icon: FaAws, color: "#ff9900" },
+  Postman: { Icon: SiPostman, color: "#ff6c37" },
+  Axios: { Icon: SiAxios, color: "#5a29e4" },
+  WordPress: { Icon: SiWordpress, color: "#21759b" },
+  Figma: { Icon: SiFigma, color: "#f24e1e" },
+  UML: { Icon: FaProjectDiagram, color: "#7c5cbf" },
+  "OpenAI API": { Icon: SiOpenai, color: "#412991" },
+  "Google Gemini API": { Icon: SiGooglegemini, color: "#4285f4" },
+  "Scrum / Agile": { Icon: FaSyncAlt, color: "#e0679a" },
 };
 
 // Experiencia laboral
@@ -208,13 +335,13 @@ const PROJECTS = [
   },
   {
     name: "Portfolio Personal",
-    url: null,
+    url: "https://github.com/Marixxa24/marisa-chaile-portfolio",
     description:
-      "Portfolio interactivo full stack con diseño dark/tech, tecnologías flotantes animadas y formulario de contacto.",
+      "Portfolio interactivo full stack con diseño pastel, tecnologías flotantes animadas y formulario de contacto.",
     tech: ["React", "Node.js", "Express", "MongoDB"],
     features: [
       "Tecnologías flotantes animadas",
-      "Diseño responsive dark/tech",
+      "Diseño responsive en tonos pastel",
       "Formulario de contacto funcional",
       "Cursor personalizado",
     ],
@@ -252,6 +379,72 @@ const PROJECTS = [
     "En desarrollo: autenticación con Google OAuth 2.0 para agenda privada por usuario",
   ],
   img: "https://github.com/user-attachments/assets/57170496-a355-4b11-acf8-0276b21a4f03",
+},
+{
+  name: "NorAl",
+  badge: "Full Stack · SaaS de gestión",
+  url: null,
+  description:
+    "Sistema de gestión para comercios de servicios: agenda de turnos, clientes, profesionales, control de stock, gastos y reportes, con reservas online y chatbot para clientes.",
+  tech: ["React", "TypeScript", "Node.js", "Express", "tRPC", "MySQL", "Drizzle ORM", "Tailwind CSS", "Docker", "Vitest"],
+  features: [
+    "Agenda de turnos con estados, horarios por profesional y recuperación de cancelaciones",
+    "Reservas online con enlace público mobile-first y chatbot guiado para clientes",
+    "Control de stock con ingresos, egresos e historial de movimientos",
+    "Reportes de ingresos, gastos y ganancia operativa, con soporte de 20 monedas latinoamericanas",
+    "Pruebas automatizadas de seguridad, autenticación y recuperación de contraseña",
+  ],
+},
+{
+  name: "Atelier Boutique",
+  badge: "E-commerce · MERN",
+  url: "https://github.com/Marixxa24/atelier-boutique-ecommerce",
+  description:
+    "E-commerce de indumentaria con estética editorial, carrito lateral interactivo y gestión de stock por talles y colores.",
+  tech: ["React", "Node.js", "Express", "MongoDB"],
+  features: [
+    "Carrito lateral interactivo",
+    "Gestión de stock por talles y colores",
+    "Diseño con estética editorial",
+  ],
+},
+{
+  name: "Gestión de Inventario",
+  badge: "Full Stack · MERN",
+  url: "https://github.com/Marixxa24/inventario-frontend-MernStack",
+  description:
+    "Sistema para gestionar el inventario de productos: interfaz web en React conectada a una API REST propia.",
+  tech: ["React", "Node.js", "Express", "MongoDB"],
+  features: [
+    "API REST con CRUD completo de productos",
+    "Endpoints de negocio para control de stock",
+    "Frontend y backend en repositorios separados",
+  ],
+},
+{
+  name: "Automatización QA",
+  badge: "QA Testing",
+  url: "https://github.com/Marixxa24/pre-entrega-automatizacion-qa",
+  description:
+    "Pruebas automatizadas sobre SauceDemo con Python, Selenium y Pytest.",
+  tech: ["Python", "Selenium", "Pytest"],
+  features: [
+    "Automatización de flujos web sobre SauceDemo",
+    "Suite de tests organizada con Pytest",
+  ],
+},
+{
+  name: "Ámbar Estética",
+  badge: "Trabajo grupal · 19 commits",
+  url: "https://github.com/FLUIDOROSA-GIT/Ambar",
+  description:
+    "Sitio web de un centro de estética que muestra tratamientos y servicios. Proyecto en equipo con diseño responsive y minimalista.",
+  tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Git / GitHub"],
+  features: [
+    "Secciones de tratamientos, nosotros y contacto",
+    "Diseño responsive y minimalista",
+    "Trabajo colaborativo con ramas y control de versiones",
+  ],
 },
 ];
 
@@ -347,7 +540,7 @@ const Home = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       techs.forEach((tech) => {
         ctx.font = `${tech.size}px 'Space Mono', monospace`;
-        ctx.fillStyle = `hsla(${tech.hue}, 75%, 65%, ${tech.opacity})`;
+        ctx.fillStyle = `hsla(${tech.hue}, 60%, 62%, ${tech.opacity + 0.1})`;
         ctx.fillText(tech.text, tech.x, tech.y);
         tech.x += tech.vx;
         tech.y += tech.vy;
@@ -385,14 +578,15 @@ const Home = () => {
             <h1 className="pf-title">
               <span className="pf-title-plain">Hola, soy</span>
               <span className="pf-title-grad">Marisa Chaile</span>
-              <span className="pf-title-italic">
-                Construyendo experiencias digitales modernas y funcionales.
-              </span>
             </h1>
 
             <p className="pf-sub">
               {typedText}
               <span className="pf-cursor-blink">_</span>
+            </p>
+
+            <p className="pf-tagline">
+              Construyendo experiencias digitales modernas y funcionales.
             </p>
 
             <p className="pf-desc">
@@ -444,7 +638,7 @@ const Home = () => {
 
             <div className="pf-social-row">
               <a
-                href="https://github.com/marisa-chaile"
+                href="https://github.com/Marixxa24"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -490,16 +684,16 @@ const Home = () => {
 
             <div className="pf-stats">
               <div className="pf-stat-card">
-                <span className="pf-stat-number">+2</span>
+                <span className="pf-stat-number">3+</span>
                 <span className="pf-stat-label">años de experiencia</span>
               </div>
               <div className="pf-stat-card">
-                <span className="pf-stat-number">proyectos realizados</span>
-                <span className="pf-stat-label">+ por realizar</span>
+                <span className="pf-stat-number">{PROJECTS.length}</span>
+                <span className="pf-stat-label">proyectos</span>
               </div>
               <div className="pf-stat-card">
-                <span className="pf-stat-number">∞</span>
-                <span className="pf-stat-label">Mate 🧉 · código</span>
+                <span className="pf-stat-number">10+</span>
+                <span className="pf-stat-label">certificaciones</span>
               </div>
             </div>
           </div>
@@ -606,17 +800,34 @@ const Home = () => {
                   {cat === "frontend" && "🎨 Frontend"}
                   {cat === "backend" && "⚙️ Backend"}
                   {cat === "database" && "🗄️ Base de Datos"}
+                  {cat === "testing" && "🧪 Testing QA"}
                   {cat === "tools" && "🛠️ Herramientas"}
                 </button>
               ))}
             </div>
 
             <div className="skills-grid">
-              {SKILLS_CATEGORIES[activeSkill].map((skill, idx) => (
-                <div key={idx} className="skill-card">
-                  <span className="skill-name">{skill}</span>
-                </div>
-              ))}
+              {SKILLS_CATEGORIES[activeSkill].map((skill, idx) => {
+                const brand = SKILL_ICONS[skill];
+                return (
+                  <div
+                    key={idx}
+                    className="skill-card"
+                    style={brand ? { "--brand": brand.color } : undefined}
+                  >
+                    <div className="skill-card-header">
+                      {brand && (
+                        <brand.Icon
+                          className="skill-icon"
+                          style={{ color: brand.color }}
+                          aria-hidden="true"
+                        />
+                      )}
+                      <span className="skill-name">{skill}</span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -680,13 +891,18 @@ const Home = () => {
             <div className="projects-grid">
               {PROJECTS.map((project, idx) => (
                 <div key={idx} className="project-card">
-                  {project.img && (
+                  {project.img ? (
                     <div className="project-image">
                       <img
                         src={project.img}
                         alt={project.name}
                         loading="lazy"
                       />
+                    </div>
+                  ) : (
+                    <div className="project-image project-image-placeholder">
+                      <span>{project.name}</span>
+                      {project.badge && <small>{project.badge}</small>}
                     </div>
                   )}
                   <h3>{project.name}</h3>

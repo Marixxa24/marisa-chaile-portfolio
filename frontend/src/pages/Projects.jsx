@@ -14,7 +14,8 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/projects`);      console.log('respuesta:', response.data);
+      const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+      const response = await axios.get(`${apiUrl}/api/projects`);
       const data = Array.isArray(response.data) ? response.data : [];
       setProjects(data);
     } catch (error) {
@@ -63,11 +64,17 @@ const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/projects`
         ) : (
           filteredProjects.map((project) => (
             <div key={project._id} className="project-card">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="project-image"
-              />
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="project-image"
+                />
+              ) : (
+                <div className="project-image project-image-placeholder">
+                  <span>{project.title}</span>
+                </div>
+              )}
               <div className="project-content">
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>

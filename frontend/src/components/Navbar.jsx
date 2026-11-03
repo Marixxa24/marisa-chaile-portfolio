@@ -1,11 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaCode, FaHome, FaFolderOpen, FaCodeBranch, FaEnvelope, FaTimes, FaBars, FaUser } from 'react-icons/fa';
+import { FaCode, FaHome, FaFolderOpen, FaCodeBranch, FaEnvelope, FaTimes, FaBars, FaUser, FaMoon, FaSun } from 'react-icons/fa';
 import '../styles/Navbar.css';
+
+// Oscuro por defecto; si la persona eligió claro, se respeta en sus próximas visitas
+const getInitialTheme = () => {
+  try {
+    return localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
+  } catch {
+    return 'dark';
+  }
+};
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(getInitialTheme);
+
+  // Aplica el tema al <html> y lo recuerda entre visitas
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {
+      localStorage.setItem('theme', theme);
+    } catch {
+      /* sin almacenamiento disponible: el tema solo dura esta visita */
+    }
+  }, [theme]);
   const location = useLocation();
   const [activeSection, setActiveSection] = useState('hero');
 
@@ -116,14 +136,26 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
-        <button
-          className={`menu-toggle ${menuOpen ? 'open' : ''}`}
-          onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="Menú"
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
+        <div className="nav-actions">
+          {/* Modo claro / oscuro */}
+          <button
+            className="theme-toggle"
+            onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
+            aria-label={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
+            title={theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}
+          >
+            {theme === 'dark' ? <FaSun /> : <FaMoon />}
+          </button>
+
+          {/* Mobile Menu Button */}
+          <button
+            className={`menu-toggle ${menuOpen ? 'open' : ''}`}
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="Menú"
+          >
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
 
         {/* Mobile Menu Overlay */}
         <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>

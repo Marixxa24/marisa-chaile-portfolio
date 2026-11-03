@@ -6,6 +6,7 @@ import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import './styles/App.css';
+import './styles/Theme.css';
 
 function App() {
   const cursorRef = useRef(null);
