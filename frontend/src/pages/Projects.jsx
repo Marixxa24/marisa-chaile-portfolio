@@ -1,11 +1,24 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { PROJECTS } from "../data/projects";
 import "../styles/Projects.css";
 
+// Los proyectos de data/projects.js se muestran al instante y sirven de respaldo
+// si el backend no responde; si la API devuelve datos, reemplazan a estos.
+const FALLBACK_PROJECTS = PROJECTS.map((p) => ({
+  _id: p.name,
+  title: p.name,
+  description: p.description,
+  image: p.img || "",
+  technologies: p.tech,
+  githubUrl: p.url && p.url.includes("github.com") ? p.url : null,
+  liveUrl: p.url && !p.url.includes("github.com") ? p.url : null,
+  category: p.category,
+}));
+
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState(FALLBACK_PROJECTS);
   const [filter, setFilter] = useState("all");
 
   useEffect(() => {
@@ -15,23 +28,20 @@ const Projects = () => {
   const fetchProjects = async () => {
     try {
       const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
-      const response = await axios.get(`${apiUrl}/api/projects`);
-      const data = Array.isArray(response.data) ? response.data : [];
-      setProjects(data);
+      const response = await axios.get(`${apiUrl}/api/projects`, {
+        timeout: 8000,
+      });
+      if (Array.isArray(response.data) && response.data.length > 0) {
+        setProjects(response.data);
+      }
     } catch (error) {
-      console.error("Error fetching projects:", error);
-      setProjects([]);
-    } finally {
-      setLoading(false);
+      // Sin backend se mantienen los proyectos de respaldo
+      console.warn("No se pudo cargar /api/projects, se muestran los de respaldo:", error.message);
     }
   };
 
   const filteredProjects =
     filter === "all" ? projects : projects.filter((p) => p.category === filter);
-
-  if (loading) {
-    return <div className="loading">Cargando proyectos...</div>;
-  }
 
   return (
     <div className="projects-page">
@@ -55,6 +65,12 @@ const Projects = () => {
           onClick={() => setFilter("fullstack")}
         >
           Full Stack
+        </button>
+        <button
+          className={filter === "qa" ? "active" : ""}
+          onClick={() => setFilter("qa")}
+        >
+          QA
         </button>
       </div>
 
